@@ -1,0 +1,16 @@
+.container {
+    background: yellow;
+    left: 20px;
+    top: 20px;
+    position: relative;   ..//static, relative(왼쪽아래로), absolute(근처로안으로), fixed(윈도우로), sticky(올려도 화면에 걸림)
+}
+
+justify-content: space-between; // 가로축 정렬
+align-items: baseline; // 1줄 세로축 정렬
+align-content: space-between; // 세로축 정렬
+align-self: center; // 개인 활동 가능
+
+
+flex-glow //반응형 박스 늘어남 배수
+flex-shrink //반응형 박스 줄어듬 배수
+flex-basis 70%//반응형 비율고정

@@ -67,3 +67,14 @@ button:focus {
     background-color: #5c2d70;
     outline: none;
 }
+
+img {
+    float: right;
+    padding-top: 30px;
+    width: 50%;
+    height: 180px;
+}
+
+audio {
+    display: none;
+}

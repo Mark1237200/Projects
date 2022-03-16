@@ -1,49 +1,100 @@
 const quizData = [
     {
-        question: "How old is Florin?",
-        a: "10",
-        b: "17",
-        c: "26",
-        d: "110",
-        correct: "c",
+        question: "이 학생은 누구인가?",
+        img: "hasumi.png",
+        a: "아리스",
+        b: "하스미",
+        c: "아이리",
+        d: "이즈나",
+        correct: "b",
     },
     {
-        question: 'What is the most used programming language in 2019?',
-        a: 'Java',
-        b: 'C',
-        c: 'Python',
-        d: 'JavaScript',
+        question: '이 학생은 누구인가?',
+        img: "koharu.png",
+        a: '이즈나',
+        b: '세리카',
+        c: '요시미',
+        d: '코하루',
         correct: 'd',
     },
     {
-        question: 'Who is the President of US in 2020?',
-        a: 'Florin Pop',
-        b: 'Donald Trump',
-        c: 'Ivan Saldano',
-        d: 'Mihai Andrei',
-        correct: 'b',
-    },
-    {
-        question: 'What does HTML stand for?',
-        a: 'Hypertext Markup Language',
-        b: 'Cascading Style Sheet',
-        c: 'Jason Object Notation',
-        d: 'Helicopters Terminals Motorboats Lamborginis',
+        question: '이 학생은 누구인가?',
+        img: "haruka.png",
+        a: '하루카',
+        b: '무츠키',
+        c: '히비키',
+        d: '세리카',
         correct: 'a',
     },
     {
-        question: 'What year was JavaScript launched?',
-        a: '1996',
-        b: '1995',
-        c: '1994',
-        d: 'none of the above',
+        question: '군중제어 효과에 걸리지 않은 경우 방어력이 증가하는 학생은?',
+        img: "white.png",
+        a: '스미레',
+        b: '에이미',
+        c: '유우카',
+        d: '츠바퀴',
+        correct: 'a',
+    },
+    {
+        question: '다음 학생 중 SMG무기가 아닌 학생은?',
+        img: "white.png",
+        a: '우타하',
+        b: '하레',
+        c: '노도카',
+        d: '아이리',
         correct: 'b',
     },
+    {
+        question: '22/03/16기준 스페셜인 총 학생수는?',
+        img: "white.png",
+        a: '18',
+        b: '20',
+        c: '21',
+        d: '23',
+        correct: 'c',
+    },
+    {
+        question: '다음 학생 중 헤일로가 세모인 학생은?',
+        img: "white.png",
+        a:'스즈미',
+        b:'사야',
+        c:'코토리',
+        d:'3명 모두 아님',
+        correct: 'c',
+    },
+    {
+        question: '연인스토리 락 듣는 소녀는?',
+        img: "white.png",
+        a:'츠루기',
+        b:'카린',
+        c:'피나',
+        d:'카요코',
+        correct: 'd',
+    },
+    {
+        question: '아까부터 배경노래로 나오는 브금 출처는?',
+        img: "white.png",
+        a:'가챠',
+        b:'홈스크린',
+        c:'숍',
+        d:'배틀',
+        correct: 'b',
+    },
+    {
+        question: '선생의 귀를 파준 학생의 생일은?',
+        img: "wihte.png",
+        a:'4.1',
+        b:'5.1',
+        c:'8.1',
+        d:'9.1',
+        correct:'d'
+    }
 ];
 
 const quiz = document.getElementById("quiz");
 const answerEls = document.querySelectorAll(".answer");
 const questionEl = document.getElementById("question");
+const imgEl = document.getElementById("img");
 const a_text = document.getElementById("a_text");
 const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
@@ -60,6 +111,7 @@ function loadQuiz() {
     const currentQuizData = quizData [currentQuiz];
 
     questionEl.innerText = currentQuizData.question;
+    imgEl.innerHTML = "<img src=" + currentQuizData.img + " />";
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
@@ -97,8 +149,8 @@ submitBtn.addEventListener("click", () => {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            quiz.innerHTML = `<h2>You answered correctly at
-            ${score}/${quizData.length} questions.</h2> 
+            quiz.innerHTML = `<h2>널 좋아하는 학생은
+            ${quizData.length}명 중 ${score} 명이야.</h2> 
             <button onClick="location.reload()">Reload</button>
             `;
         }

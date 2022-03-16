@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Quiz</title>
+    <title>BlueArchive</title>
     <link rel="stylesheet" href="JS2.css">
     <script src="JS2.js" defer></script>
 </head>
 <body>
+    <audio autoplay loop controls><source src="homescreen.mp3"></audio>
     <div class="quiz-container" id="quiz">
         <div class="quiz-header">
             <h2 id="question">Question text</h2>
+            <div id="img"></div>
+            <div id="video"></div>
             <ul>
                 <li>
-                    <input type="radio" id="a" name="answer" class="answer" />
+                    <input type="radio" id="a" name="answer" class="answer">
                     <label id="a_text" for="a">Question</label>
                 </li>
                 <li>
-                    <input type="radio" id="b" name="answer" class="answer" />
+                    <input type="radio" id="b" name="answer" class="answer">
                     <label id="b_text" for="b">Question</label>
                 </li>
                 <li>
-                    <input type="radio" id="c" name="answer" class="answer" />
+                    <input type="radio" id="c" name="answer" class="answer">
                     <label id="c_text" for="c">Question</label>
                 </li>
                 <li>
-                    <input type="radio" id="d" name="answer" class="answer" />
+                    <input type="radio" id="d" name="answer" class="answer">
                     <label id="d_text" for="d">Question</label>
                 </li>
             </ul>
@@ -34,3 +37,4 @@
     </div>
 </body>
 </html>
+

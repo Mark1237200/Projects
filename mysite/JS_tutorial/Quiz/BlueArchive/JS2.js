@@ -293,7 +293,7 @@ submitBtn.addEventListener("click", () => {
         } else {
             quiz.innerHTML = `<h2>널 좋아하는 학생은
             ${quizData.length}명 중 ${score} 명이야.</h2> 
-            <button onClick="location.reload()">Reload</button>
+            <button onClick="location.reload()">다시하기</button>
             `;
         }
     }

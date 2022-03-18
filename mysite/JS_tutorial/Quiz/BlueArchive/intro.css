@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KOTRA_GOTHIC';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    text-align: center;
+    background-image: url(https://mumu-global.fp.ps.easebar.com/file/6194689b9e15b755fda368faFmuO4WGx02);
+}
+
+div {
+    text-align: center;
+}
+
+div img {
+    justify-content:center;
+    width: 350px;
+    height: 350px;
+    
+}
+
+h3 {
+    color:aqua;
+    font-size: 2.5rem;
+    font-family: 'KOTRAHOPE';
+}
+
+a{
+    font-weight: bold;
+    font-family: 'KOTRA_GOTHIC';
+}
+
+img {
+    display: block;
+    margin: 0px auto;
+    width: 200px;
+    height: 150px;
+}
+
+footer {
+    padding-top: 150px;
+    font-family: 'KOTRAHOPE';
+}

@@ -163,7 +163,6 @@ const quizData = [
     },
     {
         question:'중장갑에 약한 속성은?',
-        audio:'kotori.mp3',
         img:'white.png',
         a:'일반',
         b:'폭팔',
@@ -186,9 +185,9 @@ const quizData = [
         img: "white.png",
         a:'아야네',
         b:'아리스',
-        c:'치나츠',
+        c:'유우카',
         d:'후우카',
-        correct:'c',
+        correct:'a',
     },
     {
         question:'이 목소리의 학생은 누구인가?',
@@ -197,7 +196,7 @@ const quizData = [
         a:'노도카',
         b:'아카리',
         c:'후우카',
-        d:'시미코',
+        d:'치나츠',
         correct:'a',
     },
     {
@@ -212,7 +211,7 @@ const quizData = [
     },
     {
         question:'유우카의 특징중 틀린것은?',
-        img:'YuuKaHalo.png',
+        img:'white.png',
         a:'IFF로 후열 적을 몰살한다',
         b:'가방이 없어 단단하지 않다',
         c:'정실이다',

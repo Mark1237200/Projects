@@ -159,7 +159,7 @@ const quizData = [
         b:'청휘석 선물상자가 있다',
         c:'배경이 밤이된다',
         d:'태그가 바뀐다',
-        correct: 'c',
+        correct: 'd',
     },
     {
         question:'중장갑에 약한 속성은?',
@@ -197,7 +197,7 @@ const quizData = [
         b:'아카리',
         c:'후우카',
         d:'치나츠',
-        correct:'a',
+        correct:'d',
     },
     {
         question: '앍 센세!! 를 만들어낸 이 학생은?',

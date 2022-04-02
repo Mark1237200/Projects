@@ -135,13 +135,13 @@ const quizData = [
         correct:'c',
     },
     {
-        question: '22/03/16기준 스페셜인 총 학생수는?',
-        img: "white.png",
-        a: '18',
-        b: '20',
-        c: '21',
-        d: '23',
-        correct: 'c',
+        question:'모모톡 상태 메세지에 공란인 학생은?',
+        img:'white.png',
+        a:'하스미',
+        b:'츠루기',
+        c:'수히나',
+        d:'에이미',
+        correct:'c',
     },
     {
         question: '다음 학생 중 헤일로가 세모인 학생은?',
@@ -228,7 +228,7 @@ const quizData = [
         c:'마키',
         d:'준코',
         correct:'b',
-    },
+    }
 ];
 
 const quiz = document.getElementById("quiz");

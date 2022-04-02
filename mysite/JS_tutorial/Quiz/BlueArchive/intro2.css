@@ -1,3 +1,10 @@
+body {
+    height: 100vh;
+    background-image:url(fake.png);
+    background-size:cover;
+    text-align: center;
+}
+
 @font-face {
     font-family: 'BMDOHYEON';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
@@ -12,26 +19,13 @@
     font-style: normal;
 }
 
-body {
-    margin: 0px;
-    text-align: center;
-    background-image: url(https://mumu-global.fp.ps.easebar.com/file/6194689b9e15b755fda368faFmuO4WGx02);
-}
-
-#arona {
-    display: flat;
-    float: center;
-    width: 300px;
-    height: 300px;
-    
-}
-
 h1 {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     color: black;
-    font-size: 3.5rem;
-    font-family: 'BMDOHYEON';
+    padding-top: 5%;
     padding-bottom: 10%;
+    font-size: 4rem;
+    font-family: 'BMDOHYEON';
 }
 
 a{ 
@@ -40,22 +34,14 @@ a{
     background-color: antiquewhite;
 }
 
-#start {
+img {
     display: block;
     margin: 0px auto;
     width: 170px;
     height: 130px;
 }
 
-#newbie {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 12rem;
-    height: 15rem;
-}
-
 footer {
-    padding-top: 70px;
+    padding-top: 10px;
     font-family: 'BMDOHYEON';
 }

@@ -11,7 +11,7 @@ Input text 안에 키보드와 세모 그림을 넣기
 Input text 검색창에 문자를 넣을시 위 border line이 없어짐
     * top bottom 패딩을 없애서 해결 (개선필요)
 
-
+네이버 시작페이지 border 주는거 힘들어서 결국 relative 사용했지만 틀린거같다.
 
 
 

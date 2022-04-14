@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 .header {
-    height: 150px;
+    height: 180px;
     padding-left: 90px;
     position: relative;
     display: flex;
     justify-content:flex-start;
     margin: 0 auto;
     align-items: center;
+    border-bottom: 1px solid lightgrey;
 }
 
 .search_bar {
-    position:relative;
-    top: 15px;
-    border: 2px solid rgb(86, 178, 77);
+    border: 2px solid rgb(14, 209, 69);
     width:600px;
     min-width: 600px;
     height: 49px;
@@ -28,7 +27,7 @@
     padding-bottom: 8px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 490px;
+    width: 477px;
     height: 30px;
     font-size: 18px;
     font-weight: 700;
@@ -42,8 +41,8 @@
     padding-top: 17px;
     font-size: 15px;
     color:white;
-    background-color: rgba(86, 178, 77);
-    border: 0px solid rgb(86, 178, 77);
+    background-color: rgb(14, 209, 69);
+    border: 0px solid rgb(14, 209, 69);
 }
 
 #search_icon:hover {
@@ -51,21 +50,18 @@
 }
 
 #keyboard {
-    position: relative;
-    color: grey;
-    font-size: 12px;
+    padding-right: 10px;
+    color: rgb(182, 182, 182);
+    font-size: 15px;
 }
 
 #caret_down {
-    position: relative;
-    color: rgb(86, 178, 77);
+    color: rgb(14, 209, 69);
 }
 
 .logo img { 
-    position:relative;
-    padding-top: 20px;
     width: 230px;
-    height: 60px;
+    height: 65px;
     padding-right: 20px;
     padding-left: 100px;
 }
@@ -117,4 +113,79 @@
     font-weight: 500;
     letter-spacing: 1px;
     color:rgb(182, 179, 179);
+}
+
+.list {
+    display: flex;
+    width: auto;
+    height: 60px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.green_li {
+    display: flex;
+    width: 610px;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+#mail {
+    font-size: 20px;
+}
+
+#live {
+    font-size: 20px;
+}
+
+#live i {
+    position: relative;
+    right: 13px;
+    bottom: 4px;
+    font-size: 1px;
+    color: white;   
+}
+
+.black_li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+}
+
+.green_li a {
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(14, 209, 69);
+}
+
+.black_li a {
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.more_btn {
+    position: relative;
+    margin: 20px;
+}
+
+.more_btn a {
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+.weather {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+}
+
+.weather marquee {
+    margin-left: 70px;
+    margin-top: 20px;
 }

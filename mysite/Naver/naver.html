@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Naver</title>
     <link rel="stylesheet" href="naver.css">
-    <script src="naver.js" refer></script>
+    <script src="naver.js" defer></script>
     <script src="https://kit.fontawesome.com/4d695e263e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -53,7 +53,9 @@
             <a href="#" role="button">더보기 <i class="fa-solid fa-angle-down"></i></a>
             </div>
             <div class="weather">
-                <marquee behavior=slide direction="up" scrollamount="20" scrolldelay="100">ABCDEFGHIJKLMNOP</marquee>
+                <div class="CurrIcon"></div>
+                <div class="CurrTemp"></div>
+                <div class="City"></div>
             </div>
         </div>
     </nav>

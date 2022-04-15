@@ -180,12 +180,38 @@
 }
 
 .weather {
-    display: flex;
     width: 400px;
     justify-content: center;
+    height: 50px;	
+    overflow: hidden;
 }
 
-.weather marquee {
-    margin-left: 70px;
-    margin-top: 20px;
+.weather h4 {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+
+    animation: example1 5s linear infinite;
 }
+   /* Move it (define the animation) */
+
+@keyframes example1 {
+    0%   {
+    transform: translateY(500%); 		
+    }
+    40%   {
+    transform: translateX(0%); 		
+    }
+    60%   {
+    transform: translateX(0%); 		
+    }
+    100% { 
+    transform: translateY(-500%); 
+    }
+}
+
+
+
+

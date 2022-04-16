@@ -179,38 +179,72 @@
     font-size: 13px;
 }
 
-.weather {
-    width: 400px;
-    justify-content: center;
-    height: 50px;	
-    overflow: hidden;
-}
-
-.weather h4 {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    line-height: 50px;
-    text-align: center;
-
-    animation: example1 5s linear infinite;
-}
-   /* Move it (define the animation) */
-
-@keyframes example1 {
+@keyframes banner {
     0%   {
-    transform: translateY(500%); 		
+        opacity: 0;
+        transform: translate3d(0, 100%, 0); 		
     }
-    40%   {
-    transform: translateX(0%); 		
-    }
-    60%   {
-    transform: translateX(0%); 		
-    }
-    100% { 
-    transform: translateY(-500%); 
+    to   {
+        opacity: 1;
+        transform: translateZ(0); 		
     }
 }
+
+.weather {
+    display: flex;
+    position: relative;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    animation: banner 3s infinite;
+}
+
+.weather:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.weather .CurrIcon {
+    font-size: 25px;
+}
+
+.fas.fa-sun {
+    color: orange;
+}
+
+.fas.fa-cloud-sun {
+    color:darkgrey;
+}
+
+.fas.fa-cloud {
+    color: grey;
+}
+
+.fas.fa-cloud-meatball {
+    color: lightskyblue;
+}
+
+.fas.fa-cloud-sun-rain {
+    color: lightskyblue;
+}
+
+.fas.fa-cloud-showers-heavy {
+    color: steelblue;
+}
+
+.fas.fa-cloud-bolt {
+    color: rgb(189, 189, 3);
+}
+
+.fas.fa-snowflake {
+    color: skyblue;
+}
+
+.fas.fa-smog {
+    color: grey;
+}
+
 
 
 

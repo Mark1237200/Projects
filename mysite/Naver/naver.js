@@ -6,10 +6,11 @@ $(document).ready(function() {
     '04' : 'fas fa-cloud-meatball',
     '09' : 'fas fa-cloud-sun-rain',
     '10' : 'fas fa-cloud-showers-heavy',
-    '11' : 'fas fa-poo-storm',
+    '11' : 'fas fa-cloud-bolt',
     '13' : 'far fa-snowflake',
     '50' : 'fas fa-smog'
     };
+
     $.ajax({
     url:'https://api.openweathermap.org/data/2.5/weather?q=seoul&units=metric&appid=1ebc5861bba83e0214cd8df3b995ffca',
     dataType:'json',

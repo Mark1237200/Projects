@@ -17,11 +17,80 @@ $(document).ready(function() {
     type:'GET',
     success:function(data){
     var $Icon = (data.weather[0].icon).substr(0,2);
-    var $Temp = Math.floor(data.main.temp) + 'º';
+    var $Temp = data.main.temp.toFixed(1) + 'º';
+    var $Description = data.weather[0].description;
+    var $Min = data.main.temp_min.toFixed(1) + 'º /';
+    var $Max = data.main.temp_max.toFixed(1) + 'º';
     var $city = data.name;
+    var $Dust = data.visibility;
+
+    if($Dust > 7500) {
+        $Dust = "<i class='fas fa-face-grin'></i> 좋음"
+    } else if($Dust > 5000) {
+        $Dust = "<i class='fas fa-face-meh'></i> 보통"
+    } else if($Dust > 2500) {
+        $Dust = "<i class='fas fa-face-frown'></i> 나쁨"
+    } else {
+        $Dust = "<i class='fas fa-face-mask'></i> 매우나쁨"
+    }
+
+    if($city = "Seoul") {
+        $city = "서울"
+    } 
+
+    if($Description = "sky is clear") {
+        $Description = "맑음"
+    } else if($Description == "few clouds" || $Description == "scattered clouds" || $Description == "broken clouds") {
+        $Description = "구름많음"
+    } else if($Description = "overcast clouds") {
+        $Description = "흐림"
+    } else if($Description = "shower rain") {
+        $Description = "소나기"
+    } else if($Description = "light rain") {
+        $Description = "보슬비"
+    } else if($Description == "moderate rain" || $Description == "Rain") {
+        $Description = "비"
+    } else if($Description = "Thunderstorm") {
+        $Description = "천둥번개"
+    } else if($Description = "snow") {
+        $Description = "눈"
+    } else { $Description = "안개"}
+
     $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>');
     $('.CurrTemp').prepend($Temp);
+    $('.Dsp').prepend($Description);
+    $('.Min').prepend($Min);
+    $('.Max').prepend($Max);
     $('.City').append($city);
+    $('.Dust').append($Dust);
+    $('.Mdust').append($Dust);
     }
     })
     });
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        var interval = window.setInterval(rollingCallback, 5000);
+    })
+    function rollingCallback(){
+
+        let current = document.querySelector('.weather .banner1');
+        current.classList.remove('banner1');
+    
+
+        let next = document.querySelector('.weather .banner2');
+
+        if(next.nextElementSibling == null){
+            document.querySelector('.weather div div:first-child').classList.add('banner2');
+        }else{
+
+            next.nextElementSibling.classList.add('banner2');
+        }
+        next.classList.remove('banner2');
+        next.classList.add('banner1');
+    }
+
+    const banner = document.getElementsByClassName("banner1") || document.getElementsByClassName("banner2")
+
+    banner.addEventListener("mouseover", function (event) {
+        event.ro
+    })

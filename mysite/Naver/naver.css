@@ -2,10 +2,10 @@
 
 .header {
     height: 180px;
-    padding-left: 90px;
+    min-width: 1200px;
     position: relative;
     display: flex;
-    justify-content:flex-start;
+    justify-content: center;
     margin: 0 auto;
     align-items: center;
     border-bottom: 1px solid lightgrey;
@@ -13,21 +13,21 @@
 
 .search_bar {
     border: 2px solid rgb(14, 209, 69);
-    width:600px;
-    min-width: 600px;
-    height: 49px;
-    text-align: center;
+    margin-left: 30px;
+    width:590px;
+    min-width: 590px;
+    height: 55px;
+    align-items: center;
 }
 
 .search_bar input {
     position: relative;
-    bottom: 0px;
     border: none;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 477px;
+    width: 459px;
     height: 30px;
     font-size: 18px;
     font-weight: 700;
@@ -35,11 +35,12 @@
 }
 
 #search_icon {
-    padding-left: 17px;
-    padding-bottom: 17px;
-    padding-right: 17px;
-    padding-top: 17px;
-    font-size: 15px;
+    float: right;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 16px;
+    padding-top: 15px;
+    font-size: 25px;
     color:white;
     background-color: rgb(14, 209, 69);
     border: 0px solid rgb(14, 209, 69);
@@ -57,13 +58,12 @@
 
 #caret_down {
     color: rgb(14, 209, 69);
+    padding-right: 1px;
 }
 
 .logo img { 
     width: 230px;
     height: 65px;
-    padding-right: 20px;
-    padding-left: 100px;
 }
 
 .favorite {
@@ -117,14 +117,16 @@
 
 .list {
     display: flex;
+    justify-content: center;
     width: auto;
+    min-width: 1200px;
     height: 60px;
     border-bottom: 1px solid lightgrey;
 }
 
 .green_li {
     display: flex;
-    width: 610px;
+    width: 425px;
     justify-content: flex-end;
     align-items: center;
     font-weight: bold;
@@ -159,6 +161,12 @@
     padding: 5px;
     text-decoration: none;
     color: rgb(14, 209, 69);
+}
+
+.green_li .shop {
+    padding-bottom: 2px;
+    font-weight: 100;
+    font-family: 'Jua', sans-serif;
 }
 
 .black_li a {
@@ -196,7 +204,7 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    top: 15px;
+    top: 18px;
 }
 
 .weather .wrap .banner1 {
@@ -213,7 +221,7 @@
     position: absolute;
     justify-content: center;
     align-items: center;
-    top: -30px;
+    top: 60px;
 }
 
 .banner1 .CurrIcon {
@@ -238,6 +246,7 @@
     color: rgb(32, 155, 255);
     padding-right: 5px;
     letter-spacing: 0px;
+    font-weight: 600;
 }
 
 .banner1 .Max {
@@ -245,6 +254,7 @@
     color:rgb(253, 52, 52);
     padding-right: 12px;
     letter-spacing: 0px;
+    font-weight: 600;
 }
 
 .banner1 .City {
@@ -338,5 +348,16 @@
     padding-right: 3px;
 }
 
+/* 몸통 */
 
+.news_home .n_home::after {
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+    margin: 8px;
+    vertical-align: 1px;
+    width: 3px;
+    height: 3px;
+    background-color: #c8ccd1;
 
+}

@@ -1,0 +1,43 @@
+body {
+    height: 100vh;
+    background-image:url(fake.png);
+    background-size:cover;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KOTRA_GOTHIC';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    color: black;
+    padding-top: 5%;
+    padding-bottom: 15%;
+    font-size: 4rem;
+    font-family: 'BMDOHYEON';
+}
+
+a{ 
+    font-weight: bold;
+    font-family: 'KOTRA_GOTHIC';
+    background-color: antiquewhite;
+    font-size: 25px;
+}
+
+img {
+    display: block;
+    margin: 0px auto;
+    width: 170px;
+    height: 130px;
+}

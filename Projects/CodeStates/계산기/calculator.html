@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="calculator.css">
+    <script src="https://kit.fontawesome.com/4d695e263e.js" crossorigin="anonymous" defer></script>
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <div class="wrap">
+        <div class="darkmode">
+            <div class="inner">
+                <input type="radio" name="toggle" id="toggle-radio-light" checked><label for="toggle-radio-light" class="tolight"><i class="fas fa-sun tolight"></i></label>
+                <input type="radio" name="toggle" id="toggle-radio-dark"><label for="toggle-radio-dark" class="todark"><i class="fas fa-moon todark"></i></label>
+                <div class="darkmode-bg"></div>
+            </div>
+        </div>
+    </div>
+    <div id="calculator">
+        <header>
+            <div>
+                <img id='logo' src="logod.png">Calculator
+            </div>
+        </header>
+        <div id="display">
+            <span id="history"></span>
+            <span id="result"></span>
+        </div>
+        <div id="num_pad">
+            <div id="num1" class="numm">
+                <div data-type="ac" id="C" class="btn"><span>C</span></div>
+                <div id="sev" class="btn"><span>7</span></div>
+                <div id="fou" class="btn"><span>4</span></div>
+                <div id="one" class="btn"><span>1</span></div>
+                <div id="dot" class="btn"><span>.</span></div>
+            </div>
+            <div id="num2" class="numm">
+                <div id="" class="btn"><span>(</span></div>
+                <div class="btn"><span>8</span></div>
+                <div class="btn"><span>5</span></div>
+                <div class="btn"><span>2</span></div>
+                <div class="btn"><span>0</span></div>
+            </div>
+            <div id="num3" class="numm">
+                <div class="btn"><span>)</span></div>
+                <div class="btn"><span>9</span></div>
+                <div class="btn"><span>6</span></div>
+                <div class="btn"><span>3</span></div>
+                <div data-type="equals" id="green" class="btn"><span>=</span></div>
+            </div>
+            <div id="num4" class="numm">
+                <div data-type="operator" id="red" class="btn"><span><</span></div>
+                <div data-type="operator" id="blue" class="btn"><span>/</span></div>
+                <div data-type="operator" id="blue" class="btn"><span>x</span></div>
+                <div data-type="operator" id="blue" class="btn"><span>-</span></div>
+                <div data-type="operator" id="blue" class="btn"><span>+</span></div>
+            </div>
+        </div>
+        <div id="home"><div></div></div>
+    </div>
+</div>
+    <script src="calculator.js"></script>
+</body>
+</html>

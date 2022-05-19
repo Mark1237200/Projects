@@ -2,3 +2,6 @@
 path = Mark1237200/blog
 url = https://github.com/Mark1237200/blog
 branch = main
+[submodule "Projects.CodeStates/fe-sprint-my-agora-states"]
+	path = Projects.CodeStates/fe-sprint-my-agora-states
+	url = git@github.com:Mark1237200/fe-sprint-my-agora-states.git

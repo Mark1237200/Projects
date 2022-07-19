@@ -16,13 +16,13 @@ $(document).ready(function() {
     dataType:'json',
     type:'GET',
     success:function(data){
-    var $Icon = (data.weather[0].icon).substr(0,2);
-    var $Temp = data.main.temp.toFixed(1) + 'º';
-    var $Description = data.weather[0].description;
-    var $Min = data.main.temp_min.toFixed(1) + 'º /';
-    var $Max = data.main.temp_max.toFixed(1) + 'º';
-    var $city = data.name;
-    var $Dust = data.visibility;
+    let $Icon = (data.weather[0].icon).substr(0,2);
+    let $Temp = data.main.temp.toFixed(1) + 'º';
+    let $Description = data.weather[0].description;
+    let $Min = data.main.temp_min.toFixed(1) + 'º /';
+    let $Max = data.main.temp_max.toFixed(1) + 'º';
+    let $city = data.name;
+    let $Dust = data.visibility;
 
     if($Dust > 7500) {
         $Dust = "<i class='fas fa-face-grin'></i> 좋음"
@@ -69,7 +69,7 @@ $(document).ready(function() {
     });
 
     document.addEventListener('DOMContentLoaded', ()=>{
-        var interval = window.setInterval(rollingCallback, 5000);
+        let interval = window.setInterval(rollingCallback, 5000);
     })
     function rollingCallback(){
 

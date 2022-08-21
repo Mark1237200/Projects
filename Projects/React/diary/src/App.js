@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import './App.css';
 import Edit from './Edit.js';
 import TalkList from './TalkList.js';
+import Lifecycle from './Lifecycle'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="App">
+      <Lifecycle />
       <Edit upload={upload}/>
       <TalkList editing={editing} del={del} list={data}/>
     </div>

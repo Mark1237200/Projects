@@ -109,14 +109,14 @@ author:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/Mark1237200/"
+      url: "https://github.com/Mark1237200"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/Mark1237200/"
+      url: "https://github.com/Mark1237200"
 
 # Reading Files
 include:

@@ -1,0 +1,27 @@
+
+[x]반응형 
+
+[]lighthouse
+
+[x] 인터넷연결, 탭활성화, 시간, 리트,  ***3개***  select recoil 사용
+
+[ ] 개인기술 작성 목욜전까지
+
+[x] React.suspense // ErrorBoundary
+
+---- 질문
+가게설정 페이지에서, useParams 통하여 유저 ID 를 가져와 데이터를 땡겨 썼는데, 사용자가
+악의적으로 URI의 파라미터 부분을 변경해 params 값이 바뀌어 타인의 푸드트럭 정보 관람이
+가능해 지는데 부모 컴포넌트에서 props로 유저 ID를 받아와야 할지.. 이부분에 대해 어떻게 접근해야 하는지..
+	=> https://velog.io/@hskwon517/withauth-%EA%B6%8C%ED%95%9C%EB%B6%84%EA%B8%B0-%EB%B0%A9%EB%B2%95%EB%93%A4 
+		HOC
+
+시각장애인위해 시멘틱 태그 + alt 등 => Resume **
+
+drop down 에서 placeholder 옵션 처럼 => 분기처리로 type이 value와 같으면 selected 추가 attribut
+
+리코일 장점 보일러 에러바운더리 호환 
+
+TpyeScript  next.js  블로그    왜 사용?   좋았던점  쓰면서 힘들었던 등등... 
+React Suit   rsuite   ->   https://rsuitejs.com/
+오픈소스 도움 부여

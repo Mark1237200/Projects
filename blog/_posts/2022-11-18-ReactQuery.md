@@ -3,11 +3,12 @@ layout: posts
 title: "리액트 쿼리 정리"
 date: 2022-11-18
 categories:
-  - Summary
+  - React
+  - React Query
 tags: ["React Query", "정리"]
 ---
 
-## React Query
+# React Query
 
 1. 리액트 쿼리는?
 2. 리액트 쿼리를 사용하는 이유는?

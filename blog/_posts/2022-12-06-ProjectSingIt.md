@@ -3,11 +3,11 @@ layout: posts
 title: "개인 프로젝트 SingIt"
 date: 2022-12-06
 categories:
-  - Summary
+  - Project
 tags: ["Project", "SingIt"]
 ---
 
-## SingIt 은
+# SingIt 은
 
 weplay 라는 앱을 플레이하며 만들게 되었다.
 
@@ -25,7 +25,7 @@ weplay 라는 앱을 플레이하며 만들게 되었다.
 
 <br>
 
-두 음정을 비교하는 라이브러리를 찾다가 포기하고 가장 원점인 사용자의 목소리의 떨림과 노래의 헤르츠를 맞추어 보기로 하였고 TarsosDSP 에서 **PitchDetector** 기능을 사용하기로 계획했다. 
+두 음정을 비교하는 라이브러리를 찾다가 포기하고 가장 원점인 사용자의 목소리의 떨림과 노래의 헤르츠를 맞추어 보기로 하였고 TarsosDSP 에서 **PitchDetector** 기능을 사용하기로 계획했다.
 
 <br>
 

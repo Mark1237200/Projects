@@ -50,7 +50,9 @@ dependencies {
 	implementation 'com.github.iamport:iamport-rest-client-java:0.2.22'
 	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 //	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-
+  // firebase
+  compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.8.1'
+  providedCompile group: 'com.google.auto.value', name: 'auto-value', version: '1.6.5'
 }
 
 tasks.named('test') {

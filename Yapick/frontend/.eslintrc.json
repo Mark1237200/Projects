@@ -40,6 +40,7 @@
     "comma-dangle": ["error"],
     "no-console": ["warn"],
     "no-alert": ["off"],
+    "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": [
       "off",
       { "packageDir": "node_modules" }

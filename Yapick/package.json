@@ -1,8 +1,5 @@
 {
   "dependencies": {
     "firebase": "^9.15.0"
-  },
-  "devDependencies": {
-    "husky": "^8.0.2"
   }
 }

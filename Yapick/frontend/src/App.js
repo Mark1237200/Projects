@@ -19,6 +19,12 @@ const FoodTruckSetting = React.lazy(() => import('./pages/FoodTruckSetting'));
 const PwChange = React.lazy(() => import('./pages/PwChange'));
 const Review = React.lazy(() => import('./pages/Review'));
 
+const api = axios.get(
+  'https://firestore.googleapis.com/v1/projects/yapick-4dee0/databases/(default)/documents/store',
+);
+
+console.log(api);
+
 function App() {
   const { type } = useRecoilValue(atoms.isLogin);
   axios.defaults.headers.common.Login = type;

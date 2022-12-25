@@ -1,4 +1,5 @@
-const { API_HOST } = process.env;
+const { API_HOST } =
+  'https://firestore.googleapis.com/v1/projects/yapick-4dee0/databases/(default)/documents/store';
 
 const KAKAO_API = {
   NAME: '카카오 로그인',

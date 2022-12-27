@@ -1,4 +1,4 @@
-function SlidingWord(word) {
+function SlidingWord({ word }) {
   return <span>{word}</span>;
 }
 

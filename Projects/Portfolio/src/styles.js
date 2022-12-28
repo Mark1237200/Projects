@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Section = styled.section`
+  margin: 0 auto;
+`;
+
 const Career = styled.div`
   font-size: 1px;
 `;
@@ -9,7 +13,9 @@ const Aside = styled.aside`
   flex-direction: column;
   width: 50%;
   gap: 20px 0px;
-  font-size: 30px;
+  font-size: 50px;
+  font-family: "DoHyeon-Regular";
+  letter-spacing: 5px;
   @keyframes SlidingWord {
     0% {
       opacity: 0;
@@ -20,14 +26,24 @@ const Aside = styled.aside`
       transform: translateZ(0);
     }
   }
-  > span:nth-of-type(1) {
-    animation-delay: 0.5s;
+  > span:nth-child(1) {
+    opacity: 0;
     animation: SlidingWord 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
   }
-  > span:nth-of-type(2) {
-    animation-delay: 1.5s;
+  > span:nth-child(2) {
+    opacity: 0;
     animation: SlidingWord 2s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+  }
+  > span:nth-child(3) {
+    opacity: 0;
+    animation: SlidingWord 2s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
   }
 `;
 
-export { Career, Aside };
+export { Career, Aside, Section };

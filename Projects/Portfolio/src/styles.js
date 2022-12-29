@@ -1,21 +1,28 @@
 import styled from "styled-components";
 
-const Section = styled.section`
+const Main = styled.main`
   margin: 0 auto;
 `;
 
-const Career = styled.div`
-  font-size: 1px;
+const Section = styled.section`
+  font-family: "DoHyeon-Regular";
+  > article {
+    display: flex;
+    > div:last-child {
+      width: 65%;
+    }
+  }
 `;
 
-const Aside = styled.aside`
+const Side = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  height: 500px;
+  width: 35%;
   gap: 20px 0px;
   font-size: 50px;
-  font-family: "DoHyeon-Regular";
   letter-spacing: 5px;
+  justify-content: center;
   @keyframes SlidingWord {
     0% {
       opacity: 0;
@@ -28,22 +35,69 @@ const Aside = styled.aside`
   }
   > span:nth-child(1) {
     opacity: 0;
-    animation: SlidingWord 2s;
+    animation: SlidingWord 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
   }
   > span:nth-child(2) {
     opacity: 0;
-    animation: SlidingWord 2s;
-    animation-delay: 2.5s;
+    animation: SlidingWord 1s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
   }
   > span:nth-child(3) {
     opacity: 0;
-    animation: SlidingWord 2s;
-    animation-delay: 4s;
+    animation: SlidingWord 1s;
+    animation-delay: 3s;
     animation-fill-mode: forwards;
   }
 `;
 
-export { Career, Aside, Section };
+const Career = styled.div`
+  opacity: 0;
+  animation: SlidingCareer 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  > div {
+    padding: 20px 10px;
+    border: 3px solid black;
+    border-radius: 20px;
+  }
+  > h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
+  @keyframes SlidingCareer {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+`;
+
+const Skills = styled.div`
+  display: flex;
+  gap: 15%;
+  > :last-child {
+    text-align: center;
+    > h4 {
+      margin: 0px;
+      padding: 5px;
+    }
+    > img {
+      display: flex;
+      padding: 3px;
+    }
+  }
+  > div > div > img {
+    padding: 3px;
+  }
+`;
+
+export { Career, Side, Section, Main, Skills };

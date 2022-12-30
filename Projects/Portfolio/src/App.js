@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
-import SlidingWord from "./components/SlidingWord";
+import { Navbar, SlidingWord } from "./components";
 import { Career, Side, Section, Main, Skills } from "./styles";
 
 function App() {
   return (
     <Fragment>
+      <Navbar />
       <Main>
         <Section>
           <article>

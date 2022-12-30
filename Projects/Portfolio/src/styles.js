@@ -6,10 +6,13 @@ const Main = styled.main`
 
 const Section = styled.section`
   font-family: "DoHyeon-Regular";
+
   > article {
     display: flex;
-    > div:last-child {
-      width: 65%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    @media (max-width: 1050px) {
+      justify-content: center;
     }
   }
 `;
@@ -17,8 +20,8 @@ const Section = styled.section`
 const Side = styled.div`
   display: flex;
   flex-direction: column;
-  height: 500px;
-  width: 35%;
+  height: 400px;
+  min-width: 200px;
   gap: 20px 0px;
   font-size: 50px;
   letter-spacing: 5px;
@@ -54,6 +57,7 @@ const Side = styled.div`
 `;
 
 const Career = styled.div`
+  width: 650px;
   opacity: 0;
   animation: SlidingCareer 2s;
   animation-delay: 4s;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Main = styled.main`
   margin: 0 auto;
+  padding-top: 100px;
 `;
 
 const Section = styled.section`
@@ -57,7 +58,7 @@ const Side = styled.div`
 `;
 
 const Career = styled.div`
-  width: 650px;
+  width: 680px;
   opacity: 0;
   animation: SlidingCareer 2s;
   animation-delay: 4s;

@@ -63,9 +63,15 @@ function App() {
                       alt="NODE.JS"
                       src="https://camo.githubusercontent.com/ab61fce6586c27e04d8ac35d0a77a20b78eb57de63ac2243353f23d3752b1fc3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f64652e6a732d3333393933333f7374796c653d666f722d7468652d6261646765266c6f676f3d4e6f64652e6a73266c6f676f436f6c6f723d7768697465"
                     />
+                  </div>
+                  <div>
                     <img
                       alt="FIREBASE"
                       src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"
+                    />
+                    <img
+                      alt="FIGMA"
+                      src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"
                     />
                   </div>
                   <div>

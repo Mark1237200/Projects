@@ -1,6 +1,14 @@
 import React, { Fragment } from "react";
-import { Navbar, SlidingWord } from "./components";
-import { Career, Side, Section, Main, Skills } from "./styles";
+import { Navbar, SlidingWord, Project } from "./components";
+import {
+  Career,
+  Side,
+  Section,
+  Main,
+  Skills,
+  FirstInfo,
+  SecondInfo,
+} from "./styles";
 
 function App() {
   return (
@@ -8,7 +16,7 @@ function App() {
       <Navbar />
       <Main>
         <Section>
-          <article>
+          <FirstInfo>
             <Side>
               <SlidingWord word="프론트엔드" />
               <SlidingWord word="김재원 주니어" />
@@ -102,7 +110,10 @@ function App() {
                 </div>
               </Skills>
             </Career>
-          </article>
+          </FirstInfo>
+          <SecondInfo>
+            <Project.Skew1 img={"./Images/logo.png"} />
+          </SecondInfo>
         </Section>
       </Main>
     </Fragment>

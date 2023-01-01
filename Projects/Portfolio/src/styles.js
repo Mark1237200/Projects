@@ -7,16 +7,18 @@ const Main = styled.main`
 
 const Section = styled.section`
   font-family: "DoHyeon-Regular";
+`;
 
-  > article {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    @media (max-width: 1050px) {
-      justify-content: center;
-    }
+const FirstInfo = styled.article`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media (max-width: 1050px) {
+    justify-content: center;
   }
 `;
+
+const SecondInfo = styled.article``;
 
 const Side = styled.div`
   display: flex;
@@ -105,4 +107,4 @@ const Skills = styled.div`
   }
 `;
 
-export { Career, Side, Section, Main, Skills };
+export { Career, Side, Section, Main, Skills, FirstInfo, SecondInfo };

@@ -9,9 +9,12 @@ const Square = styled.div`
 `;
 
 const Img = styled.img`
-  width: 150%;
+  /* width: 150%; */
   height: 150%;
-  transform: rotate(-40deg);
+  transform: rotate(-50deg);
+  top: -40px;
+  position: relative;
+  object-fit: cover;
 `;
 
 export { Square, Img };

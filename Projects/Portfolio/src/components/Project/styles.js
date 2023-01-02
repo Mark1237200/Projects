@@ -1,20 +1,37 @@
 import styled from "styled-components";
 
-const Square = styled.div`
+const SquareL = styled.div`
   width: 200px;
   height: 100px;
   transform: rotate(90deg) skewx(45deg);
   overflow: hidden;
-  text-align: center;
+  display: flex;
+  align-items: center;
 `;
 
-const Img = styled.img`
-  /* width: 150%; */
-  height: 150%;
-  transform: rotate(-50deg);
-  top: -40px;
-  position: relative;
+const SquareR = styled.div`
+  width: 200px;
+  height: 100px;
+  transform: rotate(90deg) skewx(-45deg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+`;
+
+const ImgL = styled.img`
+  width: 200px;
+  height: 300px;
+  transform: rotate(-90deg) skewy(45deg);
   object-fit: cover;
+  /* filter: blur(2px); */
 `;
 
-export { Square, Img };
+const ImgR = styled.img`
+  width: 200px;
+  height: 300px;
+  transform: rotate(-90deg) skewy(-45deg);
+  object-fit: cover;
+  /* filter: blur(2px); */
+`;
+
+export { SquareL, SquareR, ImgL, ImgR };

@@ -13,12 +13,15 @@ const FirstInfo = styled.article`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 100px;
   @media (max-width: 1050px) {
     justify-content: center;
   }
 `;
 
-const SecondInfo = styled.article``;
+const SecondInfo = styled.article`
+  display: flex;
+`;
 
 const Side = styled.div`
   display: flex;

@@ -1,13 +1,21 @@
-import { Square, Img } from "./styles";
+import { SquareL, SquareR, ImgL, ImgR } from "./styles";
 
 function Skew1({ img }) {
   return (
-    <Square>
-      <Img alt="Project" src={img} />
-    </Square>
+    <SquareL>
+      <ImgL alt="Project" src={img} />
+    </SquareL>
   );
 }
 
-const Project = { Skew1 };
+function Skew2({ img }) {
+  return (
+    <SquareR>
+      <ImgR alt="Project" src={img} />
+    </SquareR>
+  );
+}
+
+const Project = { Skew1, Skew2 };
 
 export { Project };

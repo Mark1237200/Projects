@@ -113,6 +113,7 @@ function App() {
           </FirstInfo>
           <SecondInfo>
             <Project.Skew1 img={"./Images/logo.png"} />
+            <Project.Skew2 img={"./Images/StackOverflow_logo.png"} />
           </SecondInfo>
         </Section>
       </Main>

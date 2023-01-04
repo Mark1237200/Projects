@@ -12,6 +12,7 @@ const NavigationBar = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  // background-image: linear-gradient(to right, #434343 0%, black 100%);
   > p {
     margin: 0px;
     font-size: 30px;

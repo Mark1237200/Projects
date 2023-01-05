@@ -40,7 +40,7 @@ const Img = styled.img`
 `;
 
 const Banner = styled.div`
-  display: flex;
+  /* display: flex; */
 `;
 
 export { SquareL, SquareR, ImgL, ImgR, Img, Banner };

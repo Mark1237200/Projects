@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Navbar, SlidingWord, Project } from "./components";
+import { Navbar, SlidingWord, Banner, Project } from "./components";
 import {
   Career,
   Side,
@@ -112,10 +112,7 @@ function App() {
             </Career>
           </FirstInfo>
           <SecondInfo>
-            <Project.Skew1 img={"./Images/logo.png"} />
-            <Project.Skew2 img={"./Images/StackOverflow_logo.png"} />
-            <Project.Skew1 img={"./Images/logo.png"} />
-            <Project.Skew2 img={"./Images/StackOverflow_logo.png"} />
+            <Project />
           </SecondInfo>
         </Section>
       </Main>

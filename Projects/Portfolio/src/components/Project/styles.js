@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const SquareL = styled.div`
+const SquareL = styled.button`
   width: 90px;
-  height: 31px;
+  height: 35px;
   transform: rotate(90deg) skewx(45deg) scale(2.5);
   overflow: hidden;
   display: flex;
@@ -11,9 +11,9 @@ const SquareL = styled.div`
   border: 1px solid black;
 `;
 
-const SquareR = styled.div`
+const SquareR = styled.button`
   width: 90px;
-  height: 31px;
+  height: 35px;
   transform: rotate(90deg) skewx(-45deg) scale(2.5);
   overflow: hidden;
   display: flex;
@@ -23,15 +23,24 @@ const SquareR = styled.div`
 `;
 
 const ImgL = styled.img`
-  width: 50%;
-  height: 430%;
+  width: 80%;
+  height: 400%;
   transform: rotate(-90deg) skewy(45deg);
 `;
 
 const ImgR = styled.img`
-  width: 50%;
-  height: 430%;
+  width: 80%;
+  height: 400%;
   transform: rotate(-90deg) skewy(-45deg);
 `;
 
-export { SquareL, SquareR, ImgL, ImgR };
+const Img = styled.img`
+  width: 60%;
+  height: 50%;
+`;
+
+const Banner = styled.div`
+  display: flex;
+`;
+
+export { SquareL, SquareR, ImgL, ImgR, Img, Banner };

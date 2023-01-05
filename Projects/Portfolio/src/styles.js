@@ -6,21 +6,29 @@ const Main = styled.main`
 `;
 
 const Section = styled.section`
+  display: flex;
+  flex-direction: column;
   font-family: "DoHyeon-Regular";
+  gap: 200px;
 `;
 
 const FirstInfo = styled.article`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-bottom: 100px;
   @media (max-width: 1050px) {
     justify-content: center;
   }
 `;
 
 const SecondInfo = styled.article`
-  display: flex;
+  height: 1000px;
+  width: 100%;
+  text-align: center;
+  > div {
+    display: flex;
+    padding-top: 230px;
+  }
 `;
 
 const Side = styled.div`

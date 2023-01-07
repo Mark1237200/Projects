@@ -39,8 +39,8 @@ const Img = styled.img`
   height: 50%;
 `;
 
-const Banner = styled.div`
+const Projects = styled.div`
   /* display: flex; */
 `;
 
-export { SquareL, SquareR, ImgL, ImgR, Img, Banner };
+export { SquareL, SquareR, ImgL, ImgR, Img, Projects };

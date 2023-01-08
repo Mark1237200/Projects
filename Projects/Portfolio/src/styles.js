@@ -9,7 +9,6 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   font-family: "DoHyeon-Regular";
-  gap: 200px;
 `;
 
 const FirstInfo = styled.article`
@@ -25,10 +24,6 @@ const SecondInfo = styled.article`
   height: 1000px;
   width: 100%;
   text-align: center;
-  > div {
-    display: flex;
-    padding-top: 230px;
-  }
 `;
 
 const Side = styled.div`

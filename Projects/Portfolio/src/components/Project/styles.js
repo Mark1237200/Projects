@@ -34,13 +34,23 @@ const ImgR = styled.img`
   transform: rotate(-90deg) skewy(-45deg);
 `;
 
-const Img = styled.img`
-  width: 60%;
-  height: 50%;
+const Preview = styled.div`
+  width: 1000px;
+  height: 500px;
+  padding: 150px 10px;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Projects = styled.div`
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-export { SquareL, SquareR, ImgL, ImgR, Img, Projects };
+const Banner = styled.div`
+  display: flex;
+`;
+
+export { SquareL, SquareR, ImgL, ImgR, Projects, Preview, Banner };

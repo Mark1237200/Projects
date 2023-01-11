@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { NavigationBar, MyInfo, NavBtn, ScrollBar } from "./styles";
+import { Sidebar } from "./Sidebar";
 
 function Navbar() {
   const [OnOff, SetOnOff] = useState(false);
@@ -10,23 +11,26 @@ function Navbar() {
   };
 
   return (
-    <NavigationBar>
-      <p>Mark1237200's Portfolio</p>
+    <Fragment>
+      <NavigationBar>
+        <p>Mark1237200's Portfolio</p>
 
-      <ScrollBar>
-        <NavBtn>경력</NavBtn>
-        <NavBtn>기술스택</NavBtn>
-        <NavBtn>프로젝트</NavBtn>
-      </ScrollBar>
+        <ScrollBar>
+          <NavBtn>경력</NavBtn>
+          <NavBtn>기술스택</NavBtn>
+          <NavBtn>프로젝트</NavBtn>
+        </ScrollBar>
 
-      <div>
-        <MyInfo onClick={activate} props={OnOff}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </MyInfo>
-      </div>
-    </NavigationBar>
+        <div>
+          <MyInfo onClick={activate} props={OnOff}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </MyInfo>
+        </div>
+      </NavigationBar>
+      <Sidebar />
+    </Fragment>
   );
 }
 

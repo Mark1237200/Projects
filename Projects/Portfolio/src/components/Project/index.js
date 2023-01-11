@@ -14,17 +14,15 @@ function Project() {
   const [url, setUrl] = useState("밑에 배너 클릭시 활성화");
   const [preUrl, setPreUrl] = useState("");
 
-  const Click = setTimeout(() => {
-    console.log(url, [preUrl]);
-    setPreUrl(url);
+  const Click = () => {
     if (url !== preUrl) {
       setIsClick(true);
       console.log("false");
-    } else if (url === preUrl) {
+    } else {
       setIsClick(!isClick);
       console.log("true");
     }
-  }, 500);
+  };
 
   return (
     <Projects>
@@ -39,6 +37,7 @@ function Project() {
                 "https://github.com/Mark1237200/Yapick_TeamProject/raw/main/docs/img/%EB%84%A4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98.gif"
               );
               Click();
+              setPreUrl(url);
             }}
           />
         </SquareL>
@@ -51,6 +50,7 @@ function Project() {
                 "https://github.com/Mark1237200/Stack_Overflow_Project/raw/main/img/question.png"
               );
               Click();
+              setPreUrl(url);
             }}
           />
         </SquareR>
@@ -61,6 +61,7 @@ function Project() {
             onClick={() => {
               setUrl("https://weplayapp.com/assets/images/swiper/img1.en.png");
               Click();
+              setPreUrl(url);
             }}
           />
         </SquareL>

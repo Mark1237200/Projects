@@ -12,10 +12,13 @@ import {
 function Project() {
   const [isClick, setIsClick] = useState(false);
   const [url, setUrl] = useState("밑에 배너 클릭시 활성화");
-  const [preUrl, setPreUrl] = useState("");
 
-  const Click = () => {
-    if (url !== preUrl) {
+  const firstProject = "./Images/Yapick.gif";
+  const secondProject = "./Images/StackOverflow.png";
+  const thirdProject = "./Images/SingitEx.png";
+
+  const Click = (e) => {
+    if (url !== e) {
       setIsClick(true);
       console.log("false");
     } else {
@@ -33,11 +36,8 @@ function Project() {
             alt="Project"
             src={"./Images/logo.png"}
             onClick={() => {
-              setUrl(
-                "https://github.com/Mark1237200/Yapick_TeamProject/raw/main/docs/img/%EB%84%A4%EB%B9%84%EA%B2%8C%EC%9D%B4%EC%85%98.gif"
-              );
-              Click();
-              setPreUrl(url);
+              setUrl("./Images/Yapick.gif");
+              Click(firstProject);
             }}
           />
         </SquareL>
@@ -46,11 +46,8 @@ function Project() {
             alt="Project"
             src={"./Images/StackOverflow_logo.png"}
             onClick={() => {
-              setUrl(
-                "https://github.com/Mark1237200/Stack_Overflow_Project/raw/main/img/question.png"
-              );
-              Click();
-              setPreUrl(url);
+              setUrl("./Images/StackOverflow.png");
+              Click(secondProject);
             }}
           />
         </SquareR>
@@ -59,9 +56,8 @@ function Project() {
             alt="Project"
             src={"./Images/SingIt.png"}
             onClick={() => {
-              setUrl("https://weplayapp.com/assets/images/swiper/img1.en.png");
-              Click();
-              setPreUrl(url);
+              setUrl("./Images/SingitEx.png");
+              Click(thirdProject);
             }}
           />
         </SquareL>

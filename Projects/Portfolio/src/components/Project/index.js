@@ -33,7 +33,7 @@ function Project() {
         {isClick ? (
           <img alt="Preview" src={url} />
         ) : (
-          <img alt="ClickBannerToSee" src="./Images/Preview.png" />
+          <img alt="ClickBannerToSee" src="./Images/preview.png" />
         )}
       </Preview>
       <Banner>

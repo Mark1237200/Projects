@@ -14,6 +14,7 @@ const NavigationBar = styled.div`
   left: 0;
   // 추후 나이트 모드 적용 예정 background-image: linear-gradient(to right, #434343 0%, black 100%);
   > p {
+    cursor: default;
     margin: 0px;
     font-size: 30px;
     color: #cccccc;
@@ -63,6 +64,7 @@ const MyInfo = styled.a`
 `;
 
 const NavBtn = styled.div`
+  cursor: pointer;
   padding: 5px 10px;
   color: white;
   font-size: 20px;

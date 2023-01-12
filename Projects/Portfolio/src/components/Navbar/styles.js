@@ -12,16 +12,14 @@ const NavigationBar = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  // background-image: linear-gradient(to right, #434343 0%, black 100%);
+  // 추후 나이트 모드 적용 예정 background-image: linear-gradient(to right, #434343 0%, black 100%);
   > p {
     margin: 0px;
     font-size: 30px;
     color: #cccccc;
-  }
-  > div > button {
-    border: none;
-    background-color: #333333;
-    font-size: 20px;
+    @media (max-width: 510px) {
+      font-size: 24px;
+    }
   }
   > div:last-child {
     padding-right: 20px;
@@ -64,17 +62,19 @@ const MyInfo = styled.a`
   }
 `;
 
-const NavBtn = styled.button`
+const NavBtn = styled.div`
   padding: 5px 10px;
-  font-weight: 500;
   color: white;
+  font-size: 20px;
+  @media (max-width: 510px) {
+    font-size: 16px;
+  }
 `;
 
 const ScrollBar = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 600px;
-  padding-right: 200px;
 `;
 
 export { NavigationBar, MyInfo, NavBtn, ScrollBar };

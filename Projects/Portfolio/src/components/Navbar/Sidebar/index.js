@@ -3,7 +3,9 @@ import { Bar, ProfileImg, Name, Info, Email, Github, Blog } from "./styles";
 function Sidebar() {
   return (
     <Bar>
-      <ProfileImg src="내 사진" />
+      <ProfileImg>
+        <img alt="Profile" src="./Images/Profile.jpg" />
+      </ProfileImg>
       <Name>김재원 Jaewon Kim</Name>
       <Info>
         <Email>

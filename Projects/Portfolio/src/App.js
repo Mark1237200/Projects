@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Navbar, SlidingWord, Banner, Project } from "./components";
+import { Navbar, SlidingWord, Project } from "./components";
 import {
   Career,
   Side,
@@ -23,7 +23,7 @@ function App() {
               <SlidingWord word="포트폴리오 입니다" />
             </Side>
 
-            <Career>
+            <Career id="경력">
               <h1>경력</h1>
               <div>
                 <p>
@@ -31,7 +31,7 @@ function App() {
                   2022.04 ~ 2022.10 (6개월)
                 </p>
               </div>
-              <h1>기술스택</h1>
+              <h1 id="기술스택">기술스택</h1>
               <Skills>
                 <div>
                   <div>

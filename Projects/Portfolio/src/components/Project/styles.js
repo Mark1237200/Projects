@@ -9,6 +9,10 @@ const SquareL = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  @media (max-width: 970px) {
+    width: 62px;
+    height: 25px;
+  }
 `;
 
 const SquareR = styled.button`
@@ -20,6 +24,10 @@ const SquareR = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  @media (max-width: 970px) {
+    width: 62px;
+    height: 25px;
+  }
 `;
 
 const ImgL = styled.img`
@@ -35,18 +43,26 @@ const ImgR = styled.img`
 `;
 
 const Preview = styled.div`
-  width: 1000px;
-  height: 500px;
-  padding: 150px 10px;
+  padding: 150px 0px;
   > img {
-    width: 100%;
-    height: 100%;
+    max-width: 1200px;
+    max-height: 600px;
+    @media (max-width: 970px) {
+      max-width: 600px;
+      max-height: 500px;
+    }
+    @media (max-width: 600px) {
+      max-width: 420px;
+      max-height: 500px;
+    }
   }
 `;
 
 const Projects = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Banner = styled.div`

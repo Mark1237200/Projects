@@ -7,6 +7,8 @@ const Bar = styled.div`
   right: 0px;
   top: 70px;
   width: 40%;
+  min-width: 331px;
+  max-width: 455px;
   height: 100%;
   background-color: #333333;
   font-family: "DoHyeon-Regular";
@@ -16,11 +18,19 @@ const Bar = styled.div`
   text-align: center;
 `;
 
-const ProfileImg = styled.img``;
+const ProfileImg = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 10px;
+  > img {
+    max-width: 200px;
+    max-height: 250px;
+  }
+`;
 
 const Name = styled.div`
   font-size: 36px;
-  padding: 80px 0px;
+  padding: 10px 0px 80px;
 `;
 
 const Info = styled.div`

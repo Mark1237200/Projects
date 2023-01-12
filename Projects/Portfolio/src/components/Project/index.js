@@ -29,7 +29,13 @@ function Project() {
 
   return (
     <Projects>
-      <Preview>{isClick ? <img alt="Preview" src={url} /> : ""}</Preview>
+      <Preview id="프로젝트">
+        {isClick ? (
+          <img alt="Preview" src={url} />
+        ) : (
+          <img alt="ClickBannerToSee" src="./Images/Preview.png" />
+        )}
+      </Preview>
       <Banner>
         <SquareL>
           <ImgL

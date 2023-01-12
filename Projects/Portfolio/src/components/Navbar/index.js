@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { Link } from "react-scroll";
 import { NavigationBar, MyInfo, NavBtn, ScrollBar } from "./styles";
 import { Sidebar } from "./Sidebar";
 
@@ -16,9 +17,15 @@ function Navbar() {
         <p>Mark1237200's Portfolio</p>
 
         <ScrollBar>
-          <NavBtn>경력</NavBtn>
-          <NavBtn>기술스택</NavBtn>
-          <NavBtn>프로젝트</NavBtn>
+          <Link to="경력" spy={true} smooth={true}>
+            <NavBtn>경력</NavBtn>
+          </Link>
+          <Link to="기술스택" spy={true} smooth={true}>
+            <NavBtn>기술스택</NavBtn>
+          </Link>
+          <Link to="프로젝트" spy={true} smooth={true}>
+            <NavBtn>프로젝트</NavBtn>
+          </Link>
         </ScrollBar>
 
         <div>
@@ -29,7 +36,7 @@ function Navbar() {
           </MyInfo>
         </div>
       </NavigationBar>
-      <Sidebar />
+      {OnOff ? <Sidebar /> : ""}
     </Fragment>
   );
 }

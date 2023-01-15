@@ -44,16 +44,18 @@ const ImgR = styled.img`
 
 const Preview = styled.div`
   padding: 150px 0px;
-  > img {
-    max-width: 1200px;
-    max-height: 600px;
-    @media (max-width: 970px) {
-      max-width: 600px;
-      max-height: 500px;
-    }
-    @media (max-width: 600px) {
-      max-width: 420px;
-      max-height: 500px;
+  > a {
+    > img {
+      max-width: 1200px;
+      max-height: 600px;
+      @media (max-width: 970px) {
+        max-width: 600px;
+        max-height: 500px;
+      }
+      @media (max-width: 600px) {
+        max-width: 420px;
+        max-height: 500px;
+      }
     }
   }
 `;

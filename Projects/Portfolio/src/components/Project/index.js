@@ -11,19 +11,24 @@ import {
 
 function Project() {
   const [isClick, setIsClick] = useState(false);
-  const [url, setUrl] = useState("밑에 배너 클릭시 활성화");
+  const [url, setUrl] = useState("");
+  const [src, setSrc] = useState("밑에 배너 클릭시 활성화");
 
   const firstProject = "./Images/Yapick.gif";
   const secondProject = "./Images/StackOverflow.png";
   const thirdProject = "./Images/SingitEx.png";
 
   const Click = (e) => {
-    if (url !== e) {
+    if (src !== e) {
       setIsClick(true);
-      console.log("false");
     } else {
       setIsClick(!isClick);
-      console.log("true");
+    }
+  };
+
+  const isReady = () => {
+    if (url === "준비중") {
+      alert("준비중인 프로젝트 입니다.");
     }
   };
 
@@ -31,7 +36,9 @@ function Project() {
     <Projects>
       <Preview id="프로젝트">
         {isClick ? (
-          <img alt="Preview" src={url} />
+          <a onClick={isReady} href={url === "준비중" ? undefined : url}>
+            <img alt="Preview" src={src} />
+          </a>
         ) : (
           <img alt="ClickBannerToSee" src="./Images/preview.png" />
         )}
@@ -42,8 +49,9 @@ function Project() {
             alt="Project"
             src={"./Images/logo.png"}
             onClick={() => {
-              setUrl("./Images/Yapick.gif");
+              setSrc("./Images/Yapick.gif");
               Click(firstProject);
+              setUrl("");
             }}
           />
         </SquareL>
@@ -52,8 +60,9 @@ function Project() {
             alt="Project"
             src={"./Images/StackOverflow_logo.png"}
             onClick={() => {
-              setUrl("./Images/StackOverflow.png");
+              setSrc("./Images/StackOverflow.png");
               Click(secondProject);
+              setUrl("");
             }}
           />
         </SquareR>
@@ -62,8 +71,9 @@ function Project() {
             alt="Project"
             src={"./Images/SingIt.png"}
             onClick={() => {
-              setUrl("./Images/SingitEx.png");
+              setSrc("./Images/SingitEx.png");
               Click(thirdProject);
+              setUrl("준비중");
             }}
           />
         </SquareL>

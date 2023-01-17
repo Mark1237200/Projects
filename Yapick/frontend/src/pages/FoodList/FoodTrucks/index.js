@@ -1,9 +1,11 @@
-// import React, { useRef, useCallback } from 'react';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+// import axios from 'axios';
 import { FoodListContainer, FoodListWrapper } from './styles';
 // import { FoodTruck, Spinner } from '../../../components';
 import { FoodTruck } from '../../../components';
+import { db } from '../../../utils/firebase';
+import { atoms } from '../../../store';
 
 // import { COLOR } from '../../../constants';
 // import { useFoodList } from '../../../hooks';
@@ -26,14 +28,24 @@ function FoodTrucks() {
   //     [fetchNextPage, hasNextPage],
   //   );
 
-  const [truck, setTruck] = useState({});
+  const [truck, setTruck] = useRecoilState(atoms.fireStore);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/store').then((res) => {
-      setTruck(res.data[0].data);
-      // console.log(res.data[0].data);
-    });
+    db.collection('store')
+      .get()
+      .then((e) => {
+        e.forEach((store) => {
+          setTruck(store.data());
+        });
+      });
   }, []);
+
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/store').then((res) => {
+  //     setTruck(res.data[0].data);
+  //     // console.log(res.data[0].data);
+  //   });
+  // }, []);
 
   // const createFoodTruck = () => {
   // const result = [];

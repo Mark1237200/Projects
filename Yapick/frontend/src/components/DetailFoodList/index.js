@@ -1,22 +1,26 @@
 import React from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { atoms } from '../../store';
 import { CustomModal } from '../CustomModal';
 import { Section, Menu, MenuInfo, Name, Info, Price, MenuImg } from './styles';
-import { useModal, useDetailFoodList } from '../../hooks';
+import {
+  useModal,
+  // , useDetailFoodList
+} from '../../hooks';
 
 function DetailFoodList({ storeId, storeName }) {
   const [openFood, closeFood] = useModal('food');
   const setMenuOrder = useSetRecoilState(atoms.menuOrder);
-  const { data } = useDetailFoodList(storeId);
+  // const { data } = useDetailFoodList(storeId);
+  const truck = useRecoilValue(atoms.fireStore);
 
   const handleOnClick = (id, name, value) => () => {
     openFood();
     setMenuOrder({ storeId: id, storeName: name, ...value });
   };
-  console.log(data.data[0].storeMenu);
+  console.log(truck);
   const createFoodMenuList = () => {
-    return data.data[0].storeMenu.map((menu) => (
+    return truck.map((menu) => (
       <Menu key={menu.name} onClick={handleOnClick(storeId, storeName, menu)}>
         <MenuInfo>
           <Name>{menu.name}</Name>

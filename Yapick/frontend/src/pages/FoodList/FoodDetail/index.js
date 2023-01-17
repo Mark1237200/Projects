@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useFoodDetail } from '../../../hooks';
+// import { useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+// import { useFoodDetail } from '../../../hooks';
 import { COLOR, TEXT } from '../../../constants';
+import { atoms } from '../../../store';
 import {
   Section,
   MainBody,
@@ -27,8 +29,9 @@ import {
 } from '../../../components';
 
 function FoodDetail() {
-  const { id } = useParams();
-  const { data } = useFoodDetail(id);
+  const truck = useRecoilValue(atoms.fireStore);
+  // const { id } = useParams();
+  // const { data } = useFoodDetail(id);
   const [tabType, setTabType] = useState('menu');
   const handleOnClick = (tabItem) => () => setTabType(tabItem);
 
@@ -41,8 +44,10 @@ function FoodDetail() {
     storeTag,
     totalMenu,
     totalReview,
-  } = data.data[0];
+    storeId,
+  } = truck;
 
+  const id = storeId;
   const { FOODTRUCK_IMG } = process.env;
 
   const tabMenu = {

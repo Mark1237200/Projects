@@ -46,6 +46,11 @@ const atoms = {
     default: [],
     effects: [sessionStorageEffect('orderList')],
   }),
+
+  fireStore: atom({
+    key: 'fireStore',
+    default: [],
+  }),
 };
 
 export { atoms };

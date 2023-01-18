@@ -15,14 +15,17 @@ import {
 import { ReceiptList } from '../ReceiptList';
 import { atoms } from '../../store';
 import { ROUTE } from '../../constants';
-import { usePay } from '../../hooks';
+// import { usePay } from '../../hooks';
 
-function Receipt({ order, request, type }) {
+function Receipt({
+  order,
+  //  request, type
+}) {
   const isLogin = useRecoilValue(atoms.isLogin);
   const orderList = useRecoilValue(atoms.orderList);
   const resetReceipt = useResetRecoilState(atoms.orderList);
   const navigate = useNavigate();
-  const { payWithCard, payWithCash } = usePay(orderList[0]?.storeId);
+  // const { payWithCard, payWithCash } = usePay(orderList[0]?.storeId);
 
   const totalPrice = () => {
     let sum = 0;
@@ -50,10 +53,10 @@ function Receipt({ order, request, type }) {
     return navigate(`/${ROUTE.LOGIN.PATH}`);
   };
 
-  const goPay = async () => {
-    if (type === 'CARD') await payWithCard(request, type);
-    else await payWithCash(request, type);
-  };
+  // const goPay = async () => {
+  //   if (type === 'CARD') await payWithCard(request, type);
+  //   else await payWithCash(request, type);
+  // };
 
   return (
     <StickyBody>
@@ -74,7 +77,11 @@ function Receipt({ order, request, type }) {
         <TotalPrice>합계: {totalPrice()}원</TotalPrice>
       </Cart>
       {order ? (
-        <OrderButton onClick={goPay}>결제하기</OrderButton>
+        <OrderButton
+        // onClick={goPay}
+        >
+          결제하기
+        </OrderButton>
       ) : (
         <OrderButton disabled={!orderList.length} onClick={goOrder}>
           바로 주문하기

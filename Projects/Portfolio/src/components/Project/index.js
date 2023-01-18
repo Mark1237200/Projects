@@ -51,7 +51,7 @@ function Project() {
             onClick={() => {
               setSrc("./Images/Yapick.gif");
               Click(firstProject);
-              setUrl("");
+              setUrl("../../../../../projectBuilds/Yapick/index.html");
             }}
           />
         </SquareL>
@@ -62,7 +62,7 @@ function Project() {
             onClick={() => {
               setSrc("./Images/StackOverflow.png");
               Click(secondProject);
-              setUrl("");
+              setUrl("/builds_Project/StackOverflow/index.html");
             }}
           />
         </SquareR>

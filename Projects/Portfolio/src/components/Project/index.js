@@ -29,6 +29,10 @@ function Project() {
   const isReady = () => {
     if (url === "준비중") {
       alert("준비중인 프로젝트 입니다.");
+    } else {
+      alert(
+        "CUD 기능은 아직 파이어베이스 공부중입니다! 추후 학습해 기능추가 계획.."
+      );
     }
   };
 
@@ -51,7 +55,7 @@ function Project() {
             onClick={() => {
               setSrc("./Images/Yapick.gif");
               Click(firstProject);
-              setUrl("../../../../../projectBuilds/Yapick/index.html");
+              setUrl("https://mark1237200-github-io-rosy.vercel.app/");
             }}
           />
         </SquareL>
@@ -62,7 +66,7 @@ function Project() {
             onClick={() => {
               setSrc("./Images/StackOverflow.png");
               Click(secondProject);
-              setUrl("/builds_Project/StackOverflow/index.html");
+              setUrl("https://mark1237200-github-io-kdxn.vercel.app/");
             }}
           />
         </SquareR>

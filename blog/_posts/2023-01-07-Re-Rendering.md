@@ -54,4 +54,36 @@ skewx 로 45도 기울여 마름모로 만들고 rotate 로 수직으로 90도 �
 
 <br>
 
-background-image 로 넘치는 부분은 object-fit: cover 로 이쁘게 정리하려 하였으나..
+background-image 로 이미지 url 과 background-size: cover 로 마름모에 꽉차게 넣으려 하였으나..
+
+<br>
+
+내가 trasnform 으로 돌리고 늘린 형태의 이미지가 되버린 것이였다..!
+
+<br>
+
+나는 바로 div 안에 img 를 넣어줌으로 div 가 이미지를 감싸 object-fit: cover 로 꽉차게 만들고 반대로 transform 을 주어 해결하였지만, 아무래도 이미지 크기가 각각 다르다 보니 하난 작고 하난 크게 보이게되었다...
+
+<br>
+
+이를 해결하고자 확대 축소를 반복하여 ...
+
+![7-1.png](/assets/img/7-1.png)
+
+점점 멀어지고 줄어들어 결국 디자인은 포기하고 모든 사진이 도형에 꽉차게 보이도록 width 와 height 를 주었다.
+
+```js
+const ImgL = styled.img`
+  width: 80%;
+  height: 400%;
+  transform: rotate(-90deg) skewy(45deg);
+`;
+```
+
+<br>
+
+![7-2.png](/assets/img/7-2.png)
+
+<br>
+
+이와같이 원하던 그림에 가까워졌고 추가적인 기능으로는 hover 시 애니메이션을 주어 해당 마름모만 위로 조금 올라가는 반응을 추가하고자 한다. 이는 사용자가 어느 프로젝트를 선택하고 있는지 보여주며 미관에도 좋기에 UX 개선에 도움이될거라 보고있다.

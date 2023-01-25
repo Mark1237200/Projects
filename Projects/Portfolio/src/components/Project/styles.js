@@ -13,6 +13,9 @@ const SquareL = styled.button`
     width: 62px;
     height: 25px;
   }
+  :hover {
+    transform: rotate(90deg) skewx(45deg) scale(2.5) translateX(-10px);
+  }
 `;
 
 const SquareR = styled.button`
@@ -27,6 +30,9 @@ const SquareR = styled.button`
   @media (max-width: 970px) {
     width: 62px;
     height: 25px;
+  }
+  :hover {
+    transform: rotate(90deg) skewx(-45deg) scale(2.5) translateX(-10px);
   }
 `;
 
@@ -43,7 +49,7 @@ const ImgR = styled.img`
 `;
 
 const Preview = styled.div`
-  padding: 150px 0px;
+  padding: 160px 0px;
   > a {
     > img {
       max-width: 1200px;

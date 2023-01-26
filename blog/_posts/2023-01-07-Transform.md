@@ -1,10 +1,10 @@
 ---
 layout: posts
-title: "CSS transition"
+title: "CSS transform"
 date: 2023-01-07
 categories:
-  - Yapick
-tags: ["Yapick", "트러블 슈팅", "React"]
+  - Firebase
+tags: ["Yapick", "트러블 슈팅", "React", "Firebase"]
 ---
 
 포트폴리오를 제작하면서 아무래도 디자인과는 거리가 먼 나의 구상도에 코딩 과정에서 허탈할 수 밖에 없었다..

@@ -1,5 +1,10 @@
-import firebase from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import 'firebase/firestore';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -10,8 +15,21 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FB_API_ID,
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 
-export { firebase, firebaseApp, db };
+const auth = getAuth();
+
+const user = auth.currentUser;
+
+const { providerData } = user.providerData;
+
+export {
+  firebaseApp,
+  db,
+  providerData,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  auth,
+};

@@ -4,12 +4,16 @@ import React from 'react';
 import { Form } from '../../components';
 import {
   COLOR,
-  //  ALERT,
+  // ALERT,
   ROUTE,
   //  API_URI
 } from '../../constants';
 // import { sha256 } from '../../utils';
-import { auth, createUserWithEmailAndPassword } from '../../utils/firebase';
+// import {
+// auth,
+// createUserWithEmailAndPassword,
+// signInWithEmailAndPassword,
+// } from '../../utils/firebase';
 
 function Register() {
   // const navigate = useNavigate();
@@ -42,13 +46,7 @@ function Register() {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const {
-      email,
-      // name,
-      //  phone,
-      password,
-      //  passwordCheck
-    } = e.target;
+    // const { email, name, phone, password, passwordCheck } = e.target;
     // const isCheck = validation(
     //   email.value,
     //   name.value,
@@ -56,7 +54,16 @@ function Register() {
     //   password.value,
     //   passwordCheck.value,
     // );
-    await createUserWithEmailAndPassword(auth, email, password);
+    // try {
+    //   let data;
+    //   if (isCheck) {
+    //     data = await createUserWithEmailAndPassword(auth, email, password);
+    //   } else {
+    //     data = await signInWithEmailAndPassword(auth, email, password);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   //   if (ALERT.CLIENT[isCheck]) return alert(ALERT.CLIENT[isCheck].MESSAGE);
   //   postUserData(

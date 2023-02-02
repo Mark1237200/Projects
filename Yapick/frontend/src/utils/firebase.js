@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -17,19 +17,20 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore();
+const db = getFirestore(firebaseApp);
 
 const auth = getAuth();
 
-const user = auth.currentUser;
-
-const { providerData } = user.providerData;
+const Create = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password);
+};
 
 export {
   firebaseApp,
   db,
-  providerData,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
+  Create,
   auth,
+  collection,
+  getDocs,
 };

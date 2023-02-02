@@ -35,4 +35,10 @@ firebase auth 관련 공식 페이지에서 다소 이해하기 어려운 부분
 
 <br>
 
-firebase.auth -> getAuth() 로 불러와야 했으며 공식문서대로 다시 공부할 수 밖에 없었다.
+firebase.auth -> getAuth() 로 불러와야 했으며 공식문서대로 다시 적을 수 밖에 없었다.
+
+<br>
+
+Cannot read properties of undefined (reading 'registerVersion')
+
+useEffect with async

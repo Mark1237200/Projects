@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { FoodListContainer, FoodListWrapper } from './styles';
 // import { FoodTruck, Spinner } from '../../../components';
 import { FoodTruck } from '../../../components';
-import { db } from '../../../utils/firebase';
+import { db, collection, getDocs } from '../../../utils/firebase';
 import { atoms } from '../../../store';
 
 // import { COLOR } from '../../../constants';
@@ -30,14 +30,16 @@ function FoodTrucks() {
 
   const [truck, setTruck] = useRecoilState(atoms.fireStore);
 
+  async function getStores() {
+    const stores = collection(db, 'store');
+    const store = await getDocs(stores);
+    const storeList = store.docs.map((doc) => doc.data());
+    setTruck(storeList);
+  }
+
   useEffect(() => {
-    db.collection('store')
-      .get()
-      .then((e) => {
-        e.forEach((store) => {
-          setTruck(store.data());
-        });
-      });
+    getStores();
+    console.log(truck);
   }, []);
 
   // useEffect(() => {

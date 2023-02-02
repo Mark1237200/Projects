@@ -4,16 +4,15 @@ import React from 'react';
 import { Form } from '../../components';
 import {
   COLOR,
-  // ALERT,
+  ALERT,
   ROUTE,
   //  API_URI
 } from '../../constants';
 // import { sha256 } from '../../utils';
-// import {
-// auth,
-// createUserWithEmailAndPassword,
-// signInWithEmailAndPassword,
-// } from '../../utils/firebase';
+import {
+  Create,
+  // signInWithEmailAndPassword,
+} from '../../utils/firebase';
 
 function Register() {
   // const navigate = useNavigate();
@@ -31,39 +30,33 @@ function Register() {
   //   return navigate(`/${ROUTE.LOGIN.PATH}`, { state: ROUTE.REGISTER.PATH });
   // };
 
-  // const validation = (email, name, phone, password, passwordCheck) => {
-  //   const koreaRegex = /^[가-힣]+$/;
-  //   const pwRegex = /^.*(?=^.{10,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-  //   const phoneRegex = /(\d{3})-.*(\d{3})-.*(\d{4})/;
-  //   if (!(email && name && phone && password && passwordCheck))
-  //     return ALERT.CLIENT[401].STATUS;
-  //   if (!koreaRegex.test(name)) return ALERT.CLIENT[403].STATUS;
-  //   if (!pwRegex.test(password)) return ALERT.CLIENT[404].STATUS;
-  //   if (password !== passwordCheck) return ALERT.CLIENT[405].STATUS;
-  //   if (!phoneRegex.test(phone)) return ALERT.CLIENT[406].STATUS;
-  //   return null;
-  // };
+  const validation = (email, name, phone, password, passwordCheck) => {
+    const koreaRegex = /^[가-힣]+$/;
+    const pwRegex = /^.*(?=^.{10,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+    const phoneRegex = /(\d{3})-.*(\d{3})-.*(\d{4})/;
+    if (!(email && name && phone && password && passwordCheck))
+      return ALERT.CLIENT[401].STATUS;
+    if (!koreaRegex.test(name)) return ALERT.CLIENT[403].STATUS;
+    if (!pwRegex.test(password)) return ALERT.CLIENT[404].STATUS;
+    if (password !== passwordCheck) return ALERT.CLIENT[405].STATUS;
+    if (!phoneRegex.test(phone)) return ALERT.CLIENT[406].STATUS;
+    return null;
+  };
 
-  const handleOnSubmit = async (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    // const { email, name, phone, password, passwordCheck } = e.target;
-    // const isCheck = validation(
-    //   email.value,
-    //   name.value,
-    //   phone.value,
-    //   password.value,
-    //   passwordCheck.value,
-    // );
-    // try {
-    //   let data;
-    //   if (isCheck) {
-    //     data = await createUserWithEmailAndPassword(auth, email, password);
-    //   } else {
-    //     data = await signInWithEmailAndPassword(auth, email, password);
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    const { email, name, phone, password, passwordCheck } = e.target;
+    const isCheck = validation(
+      email.value,
+      name.value,
+      phone.value,
+      password.value,
+      passwordCheck.value,
+    );
+
+    if (isCheck) {
+      Create(email, password);
+    }
   };
   //   if (ALERT.CLIENT[isCheck]) return alert(ALERT.CLIENT[isCheck].MESSAGE);
   //   postUserData(

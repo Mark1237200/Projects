@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import firebase from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import {
   getAuth,
@@ -15,9 +15,9 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FB_API_ID,
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
-const db = getFirestore(firebaseApp);
+const db = getFirestore(app);
 
 const auth = getAuth();
 
@@ -25,12 +25,4 @@ const Create = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password);
 };
 
-export {
-  firebaseApp,
-  db,
-  signInWithEmailAndPassword,
-  Create,
-  auth,
-  collection,
-  getDocs,
-};
+export { db, signInWithEmailAndPassword, Create, auth, collection, getDocs };

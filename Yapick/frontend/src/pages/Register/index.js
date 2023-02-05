@@ -54,7 +54,7 @@ function Register() {
       password.value,
       passwordCheck.value,
     );
-
+    console.log(email, name, phone, password, passwordCheck);
     if (isCheck) {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {

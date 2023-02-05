@@ -1,6 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form } from '../../components';
 import {
   COLOR,
@@ -10,12 +10,13 @@ import {
 } from '../../constants';
 // import { sha256 } from '../../utils';
 import {
-  Create,
+  createUserWithEmailAndPassword,
+  auth,
   // signInWithEmailAndPassword,
 } from '../../utils/firebase';
 
 function Register() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const postUserData = async (email, name, phone, password) => {
   //   const userInfo = {
@@ -55,7 +56,16 @@ function Register() {
     );
 
     if (isCheck) {
-      Create(email, password);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert('회원가입 성공하셨습니다!!');
+          return navigate(`/${ROUTE.LOGIN.PATH}`, {
+            state: ROUTE.REGISTER.PATH,
+          });
+        })
+        .catch((err) => {
+          alert(`회원가입에 실패하였습니다 ${err}`);
+        });
     }
   };
   //   if (ALERT.CLIENT[isCheck]) return alert(ALERT.CLIENT[isCheck].MESSAGE);

@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import firebase from 'firebase/compat/app';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -21,8 +21,12 @@ const db = getFirestore(app);
 
 const auth = getAuth();
 
-const Create = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password);
+export {
+  db,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  auth,
+  collection,
+  getDocs,
+  addDoc,
 };
-
-export { db, signInWithEmailAndPassword, Create, auth, collection, getDocs };

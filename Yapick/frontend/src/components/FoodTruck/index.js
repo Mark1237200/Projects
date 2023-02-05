@@ -38,7 +38,7 @@ function FoodTruckIndex({
         <FoodTruckTextInner>
           <FoodTruckTitle>{storeName}</FoodTruckTitle>
           <FoodTruckContentBox>
-            <FoodTruckText color="#ffa800">★ {totalGrade}</FoodTruckText>
+            <FoodTruckText color="#ffa800">{totalGrade}</FoodTruckText>
             <FoodTruckText>리뷰 {totalReview}</FoodTruckText>
             <FoodTruckText none>답변 {totalComment}</FoodTruckText>
           </FoodTruckContentBox>

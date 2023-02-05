@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import { FoodListContainer, FoodListWrapper } from './styles';
 // import { FoodTruck, Spinner } from '../../../components';
 import { FoodTruck } from '../../../components';
 import { db, collection, getDocs } from '../../../utils/firebase';
-import { atoms } from '../../../store';
 
 // import { COLOR } from '../../../constants';
 // import { useFoodList } from '../../../hooks';
@@ -28,18 +26,17 @@ function FoodTrucks() {
   //     [fetchNextPage, hasNextPage],
   //   );
 
-  const [truck, setTruck] = useRecoilState(atoms.fireStore);
+  const [truck, setTruck] = useState({});
 
   async function getStores() {
-    const stores = collection(db, 'store');
-    const store = await getDocs(stores);
-    const storeList = store.docs.map((doc) => doc.data());
-    setTruck(storeList);
+    const store = await getDocs(collection(db, 'store'));
+    store.forEach((doc) => {
+      setTruck(doc.data());
+    });
   }
 
   useEffect(() => {
     getStores();
-    console.log(truck);
   }, []);
 
   // useEffect(() => {

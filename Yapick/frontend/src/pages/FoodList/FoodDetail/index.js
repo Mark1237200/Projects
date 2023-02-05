@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db, collection, getDocs } from '../../../utils/firebase';
 // import { useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 // import { useFoodDetail } from '../../../hooks';
 import { COLOR, TEXT } from '../../../constants';
-import { atoms } from '../../../store';
 import {
   Section,
   MainBody,
@@ -29,11 +28,22 @@ import {
 } from '../../../components';
 
 function FoodDetail() {
-  const truck = useRecoilValue(atoms.fireStore);
   // const { id } = useParams();
   // const { data } = useFoodDetail(id);
   const [tabType, setTabType] = useState('menu');
+  const [truck, setTruck] = useState({});
   const handleOnClick = (tabItem) => () => setTabType(tabItem);
+
+  async function getStores() {
+    const store = await getDocs(collection(db, 'store'));
+    store.forEach((doc) => {
+      setTruck(doc.data());
+    });
+  }
+
+  useEffect(() => {
+    getStores();
+  }, []);
 
   const {
     storeName,

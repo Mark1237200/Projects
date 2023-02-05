@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { atoms } from '../../store';
+import { getDocs, collection, db } from '../../utils/firebase';
 import { CustomModal } from '../CustomModal';
 import { Section, Menu, MenuInfo, Name, Info, Price, MenuImg } from './styles';
-import { useModal, useDetailFoodList } from '../../hooks';
+import {
+  useModal,
+  // useDetailFoodList
+} from '../../hooks';
 
 function DetailFoodList({ storeId, storeName }) {
   const [openFood, closeFood] = useModal('food');
   const setMenuOrder = useSetRecoilState(atoms.menuOrder);
-  const { data } = useDetailFoodList(storeId);
+  // const { data } = useDetailFoodList(storeId);
+  const [data, setData] = useState({});
+  async function getStores() {
+    const store = await getDocs(collection(db, 'store'));
+    store.forEach((doc) => {
+      setData(doc.data());
+    });
+  }
+
+  useEffect(() => {
+    getStores();
+  }, []);
 
   const handleOnClick = (id, name, value) => () => {
     openFood();

@@ -54,9 +54,9 @@ function Register() {
       password.value,
       passwordCheck.value,
     );
-    console.log(email, name, phone, password, passwordCheck);
+
     if (isCheck) {
-      createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
           alert('회원가입 성공하셨습니다!!');
           return navigate(`/${ROUTE.LOGIN.PATH}`, {

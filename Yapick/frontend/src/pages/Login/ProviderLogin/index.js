@@ -1,32 +1,38 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import { useSetRecoilState } from 'recoil';
 import { atoms } from '../../../store';
 import { Form } from '../../../components';
+import { auth, signInWithEmailAndPassword } from '../../../utils/firebase';
 import { Logo, LoginInner, FindInner, FindText } from './styles';
-import { ROUTE, COLOR, ALERT, API_URI } from '../../../constants';
-import { sha256 } from '../../../utils';
+import {
+  ROUTE,
+  COLOR,
+  ALERT,
+  //  API_URI
+} from '../../../constants';
+// import { sha256 } from '../../../utils';
 
 function ProviderLogin() {
   const setIsLogin = useSetRecoilState(atoms.isLogin);
   const setLoginInfo = useSetRecoilState(atoms.loginInfo);
   const navigate = useNavigate();
 
-  const postUserData = async (email, password) => {
-    const userInfo = {
-      email,
-      password,
-    };
-    const response = await axios.post(API_URI.LOGIN, userInfo);
-    if (response.status === 226) return alert(response.data?.message);
-    setIsLogin({ state: true, type: 'local' });
-    setLoginInfo({
-      storeId: response.data.store?.storeId || null,
-      localId: response.data.localId,
-    });
-    return navigate(ROUTE.HOME.PATH);
-  };
+  // const postUserData = async (email, password) => {
+  //   const userInfo = {
+  //     email,
+  //     password,
+  //   };
+  //   const response = await axios.post(API_URI.LOGIN, userInfo);
+  //   if (response.status === 226) return alert(response.data?.message);
+  //   setIsLogin({ state: true, type: 'local' });
+  //   setLoginInfo({
+  //     storeId: response.data.store?.storeId || null,
+  //     localId: response.data.localId,
+  //   });
+  //   return navigate(ROUTE.HOME.PATH);
+  // };
 
   const validation = (email, pw) => {
     if (!(email && pw)) return ALERT.CLIENT[401].STATUS;
@@ -39,7 +45,21 @@ function ProviderLogin() {
     const { email, password } = e.target;
     const isCheck = validation(email.value, password.value);
     if (ALERT.CLIENT[isCheck]) return alert(ALERT.CLIENT[isCheck].MESSAGE);
-    postUserData(email.value, sha256(password.value));
+    signInWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        const userInfo = userCredential.user;
+        setIsLogin({ state: true, type: 'local' });
+        // setLoginInfo({
+        //   storeId: response.data.store?.storeId || null,
+        //   localId: response.data.localId,
+        // });
+        console.log(userInfo);
+        return navigate(ROUTE.HOME.PATH);
+      })
+      .catch((err) => {
+        alert(`로그인에 실패했습니다 ${err}`);
+      });
+    // postUserData(email.value, sha256(password.value));
     return null;
   };
 

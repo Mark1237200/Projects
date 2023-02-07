@@ -1,7 +1,7 @@
 ---
 layout: posts
-title: "야픽 서버 자동화 & 빌드"
-date: 2022-12-19
+title: "Firebase FireStore"
+date: 2022-12-20
 categories:
   - Firebase
 tags: ["Yapick", "트러블 슈팅", "firebase"]
@@ -81,9 +81,9 @@ app.js 에 연동해 console.log 로 열어보려니 모듈을 찾지 못한다.
 흔한 업데이트 이슈로 스택오버플로우 형님들꺼를 보고 경로를 수정해줬다.
 
 ```javascript
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 ```
 
 정상적으로 작동하며 콘솔로도 잘 불러와진다 !

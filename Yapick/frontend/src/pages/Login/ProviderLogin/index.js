@@ -16,7 +16,7 @@ import {
 
 function ProviderLogin() {
   const setIsLogin = useSetRecoilState(atoms.isLogin);
-  const setLoginInfo = useSetRecoilState(atoms.loginInfo);
+  // const setLoginInfo = useSetRecoilState(atoms.loginInfo);
   const navigate = useNavigate();
 
   // const postUserData = async (email, password) => {

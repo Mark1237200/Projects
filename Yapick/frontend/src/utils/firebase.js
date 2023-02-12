@@ -4,6 +4,9 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -22,6 +25,9 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 export {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
   db,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

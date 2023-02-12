@@ -29,10 +29,6 @@ function Project() {
   const isReady = () => {
     if (url === "준비중") {
       alert("준비중인 프로젝트 입니다.");
-    } else {
-      alert(
-        "CUD 기능은 아직 파이어베이스 공부중입니다! 추후 학습해 기능추가 계획.."
-      );
     }
   };
 

@@ -39,51 +39,25 @@ const Info = styled.div`
   gap: 5px 0px;
 `;
 
-const Email = styled.div`
+const InfoBar = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 60px;
-  font-size: 20px;
-  background-color: #ea4335;
-  > img {
-    width: 90px;
-    height: 60px;
-  }
-`;
-
-const Github = styled.div`
-  display: flex;
-  align-items: center;
+  text-align: center;
   width: 100%;
   height: 60px;
   font-size: 18px;
-  background-color: #181717;
+  background-color: ${(props) => props.color};
+  > div {
+    width: 100%;
+    > a {
+      text-decoration: none;
+      color: white;
+    }
+  }
   > img {
     width: 90px;
     height: 60px;
   }
-  > a {
-    text-decoration: none;
-    color: white;
-  }
 `;
 
-const Blog = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  font-size: 20px;
-  background-color: #cc0000;
-  > img {
-    width: 90px;
-    height: 60px;
-  }
-  > a {
-    text-decoration: none;
-    color: white;
-  }
-`;
-
-export { Bar, ProfileImg, Name, Info, Email, Github, Blog };
+export { Bar, ProfileImg, Name, Info, InfoBar };

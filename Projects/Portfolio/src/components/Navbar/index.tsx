@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment, useState } from "react";
 import { Link } from "react-scroll";
 import { NavigationBar, MyInfo, NavBtn, ScrollBar } from "./styles";
@@ -6,7 +7,7 @@ import { Sidebar } from "./Sidebar";
 function Navbar() {
   const [OnOff, SetOnOff] = useState(false);
 
-  const activate = (e) => {
+  const activate = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     SetOnOff(!OnOff);
   };
@@ -29,7 +30,7 @@ function Navbar() {
         </ScrollBar>
 
         <div>
-          <MyInfo onClick={activate} props={OnOff}>
+          <MyInfo onClick={activate} activate={OnOff}>
             <span></span>
             <span></span>
             <span></span>

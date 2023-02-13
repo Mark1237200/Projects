@@ -27,7 +27,7 @@ const NavigationBar = styled.div`
   }
 `;
 
-const MyInfo = styled.a`
+const MyInfo = styled.a<{ activate: boolean }>`
   position: relative;
   width: 30px;
   height: 25px;
@@ -50,16 +50,16 @@ const MyInfo = styled.a`
   > span:nth-child(1) {
     top: 0;
     transform: ${(props) =>
-      props.props ? "translateY(10px) rotate(-45deg)" : ""};
+      props.activate ? "translateY(10px) rotate(-45deg)" : ""};
   }
   > span:nth-child(2) {
     top: 10px;
-    opacity: ${(props) => (props.props ? "0" : "")};
+    opacity: ${(props) => (props.activate ? "0" : "")};
   }
   > span:nth-child(3) {
     bottom: 0;
     transform: ${(props) =>
-      props.props ? "translateY(-11px) rotate(45deg)" : ""};
+      props.activate ? "translateY(-11px) rotate(45deg)" : ""};
   }
 `;
 

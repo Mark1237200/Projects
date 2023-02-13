@@ -1,3 +1,4 @@
+import React from "react";
 import { Bar, ProfileImg, Name, Info, InfoBar } from "./styles";
 
 function Sidebar() {

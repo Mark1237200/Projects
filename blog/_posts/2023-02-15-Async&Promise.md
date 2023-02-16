@@ -47,6 +47,8 @@ signInWithEmailAndPassword(auth, email.value, password.value) // firebase 의 �
 
 then 과 catch 대신 try catch 를 사용하게 되는데 크게 차이는 없으나 async & await 의 경우 then 과 catch 를 사용하면 Promise 형태로 출력이 되기 때문에 try catch 를 같이 묶어서 사용한다.
 
+코드의 가독성이 좋아진다 !
+
 ```js
 const postUserData = async (email, password) => {
   const userInfo = {

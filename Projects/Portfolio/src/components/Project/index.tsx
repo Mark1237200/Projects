@@ -18,7 +18,7 @@ function Project() {
   const secondProject = "./Images/StackOverflow.png";
   const thirdProject = "./Images/SingitEx.png";
 
-  const Click = (e) => {
+  const Click = (e: string) => {
     if (src !== e) {
       setIsClick(true);
     } else {

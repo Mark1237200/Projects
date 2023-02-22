@@ -133,4 +133,10 @@ signInWithEmailAndPassword(auth, email.value, password.value)
 
 ![firebase2.png](/assets/img/firebase2.png)
 
+몆일 뒤 에러를 발견하였는데 까먹고 배포한 주소를 승인된 도메인에 추가하지 않았다.
+
+![firebase4.png](/assets/img/firebase4.png)
+
+이와같이 맨 밑에 mark1237200-github-io-rosy.vercel.app 을 추가하여 내 포트폴리오를 통해서 들어간 야픽 프로젝트의 로그인 기능 확인을 하였다.
+
 다음 목표는 개개인의 사용자가 본인의 가게를 수정하고 삭제할 수 있도록 정보를 넣고 withAuth 기능도 재구현 해보는 것이다.

@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, SvgIcon } from '../../../components';
 import { ButtonInner, TextBox, Text, Logo } from './styles';
-import { KAKAO_API, TEXT, ALERT } from '../../../constants';
+import { KAKAO_API, TEXT, ROUTE, ALERT } from '../../../constants';
 import {
   GoogleAuthProvider,
   auth,
@@ -10,6 +11,8 @@ import {
 } from '../../../utils/firebase';
 
 function ConsumerLogin() {
+  const navigate = useNavigate();
+
   const handleOnSubmit = (api) => (e) => {
     e.preventDefault();
     window.location.assign(api);
@@ -32,6 +35,7 @@ function ConsumerLogin() {
         // The signed-in user info.
         // const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        return navigate(ROUTE.HOME.PATH);
       })
       .catch((err) => {
         // Handle Errors here.
@@ -54,6 +58,7 @@ function ConsumerLogin() {
         // The signed-in user info.
         // const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        // return navigate(ROUTE.HOME.PATH);
       })
       .catch((error) => {
         // Handle Errors here.

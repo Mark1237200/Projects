@@ -2,7 +2,7 @@ import * as meyda from "meyda";
 
 const audioContext = new AudioContext();
 const audioFile1 = await fetch("music/example.mp3");
-const audioFile2 = await fetch("music/sample.mp3");
+const audioFile2 = await fetch("music/sample.m4a");
 const audioBuffer1 = await audioContext.decodeAudioData(
   await audioFile1.arrayBuffer()
 );

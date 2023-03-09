@@ -2,11 +2,14 @@ import React from "react";
 import { Acoustic } from "./utils/Acoustic.js";
 
 function App() {
-  // const result = Acoustic();
+  const audio = new Audio();
+  console.log(audio.canPlayType("audio/mpeg")); // "maybe", "probably", or ""
+  console.log(audio.canPlayType("audio/wav")); // "maybe", "probably", or ""
+  console.log(audio.canPlayType("audio/ogg"));
   return (
-    <a2>
+    <div>
       정확도는 <Acoustic /> 입니다.
-    </a2>
+    </div>
   );
 }
 

@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import * as meyda from "meyda";
 
 function Acoustic() {
-  const audioContext = new AudioContext();
+  const audioContextRef = useRef(null);
+  // const audioContext = new AudioContext();
   const [result, setResult] = useState("");
+  const [mfcc1, setMFCC1] = useState(null);
+  const [mfcc2, setMFCC2] = useState(null);
 
   // const bufferLength = audioBuffer.length;
   // const sampleRate = audioBuffer.sampleRate;
@@ -22,6 +25,27 @@ function Acoustic() {
       melBands: melBands,
       mfccs: mfccs,
     },
+  };
+
+  const initAudioContext = async () => {
+    try {
+      // AudioContext가 이미 존재하는 경우, 반환하고 끝냅니다.
+      if (audioContextRef.current) return audioContextRef.current;
+
+      // AudioContext 생성
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioContext = new AudioContext();
+
+      // AudioContext를 시작합니다.
+      await audioContext.resume();
+
+      // audioContextRef.current를 업데이트 합니다.
+      audioContextRef.current = audioContext;
+
+      return audioContext;
+    } catch (error) {
+      console.log("Error initializing AudioContext: ", error);
+    }
   };
 
   function euclideanDistance(x, y) {
@@ -62,48 +86,84 @@ function Acoustic() {
     return DTW[n][m];
   }
 
-  const comparing = () => {
-    fetch("music/example.mp3")
-      .then((response) => response.arrayBuffer())
-      .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer))
+  const handleButtonClick = () => {
+    const audioContext = initAudioContext();
+    fetch("music/example.wav")
+      .then((response) => {
+        response.arrayBuffer();
+      })
+      .then((arrayBuffer) => {
+        console.log(arrayBuffer);
+        audioContext.decodeAudioData(arrayBuffer);
+      })
       .then((audioBuffer1) => {
-        fetch("music/sample.m4a")
+        fetch("music/example.mp3")
           .then((response) => response.arrayBuffer())
           .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer))
           .then((audioBuffer2) => {
+            const source1 = audioContext.createBufferSource();
+            source1.buffer = audioBuffer1;
+            source1.connect(audioContext.destination);
+
+            const source2 = audioContext.createBufferSource();
+            source2.buffer = audioBuffer2;
+            source2.connect(audioContext.destination);
+
             const extractor1 = meyda.createMeydaAnalyzer({
               audioContext: audioContext,
-              source: audioBuffer1,
+              source: source1,
               featureExtractors: featureExtractors,
               bufferSize: frameSize,
               hopSize: hopSize,
-              windowingFunction: "hann",
+              windowingFunction: "hanning",
             });
-
-            const mfcc1 = extractor1.get("mfcc");
 
             const extractor2 = meyda.createMeydaAnalyzer({
               audioContext: audioContext,
-              source: audioBuffer2,
+              source: source2,
               featureExtractors: featureExtractors,
               bufferSize: frameSize,
               hopSize: hopSize,
-              windowingFunction: "hann",
+              windowingFunction: "hanning",
             });
 
-            const mfcc2 = extractor2.get("mfcc");
+            extractor1.get("mfcc", (features) => {
+              console.log("mfcc1: ", features);
+              setMFCC1(features);
+            });
 
-            setResult(
-              calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
-            );
+            extractor2.get("mfcc", (features) => {
+              console.log("mfcc2: ", features);
+              setMFCC2(features);
+            });
+
+            extractor1.start();
+
+            source1.start(0);
+            source2.start(0);
+
+            const calculateDistance = () => {
+              if (mfcc1 && mfcc2) {
+                console.log(mfcc1, mfcc2);
+                setResult(
+                  calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
+                );
+              } else {
+                setTimeout(calculateDistance, 100);
+              }
+            };
+            calculateDistance();
           });
-      });
+      })
+      .catch((err) => console.log(err));
   };
-  useEffect(() => {
-    comparing();
-  }, []);
 
-  return <a2>정확도는 {result} 입니다.</a2>;
+  return (
+    <>
+      <button onClick={handleButtonClick}>Start AudioContext</button>
+      <div>정확도는 "{result}" 입니다.</div>
+    </>
+  );
 }
 
 export { Acoustic };

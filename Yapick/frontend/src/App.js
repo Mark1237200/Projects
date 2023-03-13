@@ -23,6 +23,26 @@ function App() {
   const { type } = useRecoilValue(atoms.isLogin);
   axios.defaults.headers.common.Login = type;
 
+  function Test() {
+    const options = {
+      method: 'GET',
+      url: 'https://any-anime.p.rapidapi.com/anime/img',
+      headers: {
+        'X-RapidAPI-Key': '9643effaeemshd27cbdff2769cb4p17174ajsn1ed1b4af4444',
+        'X-RapidAPI-Host': 'any-anime.p.rapidapi.com',
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+  Test();
   return (
     <>
       <GlobalNav />

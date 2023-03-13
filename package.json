@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
   }
 }

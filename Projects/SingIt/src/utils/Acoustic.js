@@ -1,6 +1,20 @@
 import React, { useState, useRef } from "react";
 import * as meyda from "meyda";
 
+const socket = new WebSocket("ws://localhost:8080");
+
+socket.onerror = function (event) {
+  console.error("WebSocket error:", event);
+};
+
+socket.onopen = function (event) {
+  console.log("WebSocket connection established");
+};
+
+socket.onclose = function (event) {
+  console.log("WebSocket connection closed:", event.code, event.reason);
+};
+
 function Acoustic() {
   const audioContextRef = useRef(null);
   // const audioContext = new AudioContext();
@@ -93,7 +107,7 @@ function Acoustic() {
         response.arrayBuffer();
       })
       .then((arrayBuffer) => {
-        console.log(arrayBuffer);
+        console.log(arrayBuffer, audioContext);
         audioContext.decodeAudioData(arrayBuffer);
       })
       .then((audioBuffer1) => {

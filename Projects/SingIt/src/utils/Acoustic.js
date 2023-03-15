@@ -15,6 +15,10 @@ socket.onclose = function (event) {
   console.log("WebSocket connection closed:", event.code, event.reason);
 };
 
+socket.onmessage = function (event) {
+  console.log("Received message:", event.data);
+};
+
 function Acoustic() {
   const audioContextRef = useRef(null);
   // const audioContext = new AudioContext();
@@ -39,27 +43,6 @@ function Acoustic() {
       melBands: melBands,
       mfccs: mfccs,
     },
-  };
-
-  const initAudioContext = async () => {
-    try {
-      // AudioContext가 이미 존재하는 경우, 반환하고 끝냅니다.
-      if (audioContextRef.current) return audioContextRef.current;
-
-      // AudioContext 생성
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioContext = new AudioContext();
-
-      // AudioContext를 시작합니다.
-      await audioContext.resume();
-
-      // audioContextRef.current를 업데이트 합니다.
-      audioContextRef.current = audioContext;
-
-      return audioContext;
-    } catch (error) {
-      console.log("Error initializing AudioContext: ", error);
-    }
   };
 
   function euclideanDistance(x, y) {
@@ -101,73 +84,86 @@ function Acoustic() {
   }
 
   const handleButtonClick = () => {
-    const audioContext = initAudioContext();
+    const audioContext = new AudioContext();
+
+    let audioBuffer1, audioBuffer2;
+    let source1, source2;
+
     fetch("music/example.wav")
       .then((response) => {
-        response.arrayBuffer();
+        return response.arrayBuffer();
       })
       .then((arrayBuffer) => {
-        console.log(arrayBuffer, audioContext);
-        audioContext.decodeAudioData(arrayBuffer);
+        return audioContext.decodeAudioData(arrayBuffer);
       })
-      .then((audioBuffer1) => {
-        fetch("music/example.mp3")
-          .then((response) => response.arrayBuffer())
-          .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer))
-          .then((audioBuffer2) => {
-            const source1 = audioContext.createBufferSource();
-            source1.buffer = audioBuffer1;
-            source1.connect(audioContext.destination);
-
-            const source2 = audioContext.createBufferSource();
-            source2.buffer = audioBuffer2;
-            source2.connect(audioContext.destination);
-
-            const extractor1 = meyda.createMeydaAnalyzer({
-              audioContext: audioContext,
-              source: source1,
-              featureExtractors: featureExtractors,
-              bufferSize: frameSize,
-              hopSize: hopSize,
-              windowingFunction: "hanning",
-            });
-
-            const extractor2 = meyda.createMeydaAnalyzer({
-              audioContext: audioContext,
-              source: source2,
-              featureExtractors: featureExtractors,
-              bufferSize: frameSize,
-              hopSize: hopSize,
-              windowingFunction: "hanning",
-            });
-
-            extractor1.get("mfcc", (features) => {
-              console.log("mfcc1: ", features);
-              setMFCC1(features);
-            });
-
-            extractor2.get("mfcc", (features) => {
-              console.log("mfcc2: ", features);
-              setMFCC2(features);
-            });
-
-            extractor1.start();
-
-            source1.start(0);
-            source2.start(0);
-
-            const calculateDistance = () => {
-              if (mfcc1 && mfcc2) {
-                console.log(mfcc1, mfcc2);
-                setResult(
-                  calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
-                );
-              } else {
-                setTimeout(calculateDistance, 100);
-              }
-            };
-            calculateDistance();
+      .then((audioBuffer) => {
+        audioBuffer1 = audioBuffer;
+        return fetch("music/example.mp3")
+          .then((response) => {
+            return response.arrayBuffer();
+          })
+          .then((arrayBuffer) => {
+            return audioContext.decodeAudioData(arrayBuffer);
           });
+      })
+      .then((audioBuffer) => {
+        audioBuffer2 = audioBuffer;
+
+        source1 = audioContext.createBufferSource();
+        source1.buffer = audioBuffer1;
+        source1.connect(audioContext.destination);
+
+        source2 = audioContext.createBufferSource();
+        source2.buffer = audioBuffer2;
+        source2.connect(audioContext.destination);
+
+        const extractor1 = meyda.createMeydaAnalyzer({
+          audioContext: audioContext,
+          source: source1,
+          featureExtractors: featureExtractors,
+          bufferSize: frameSize,
+          hopSize: hopSize,
+          windowingFunction: "hanning",
+        });
+
+        const extractor2 = meyda.createMeydaAnalyzer({
+          audioContext: audioContext,
+          source: source2,
+          featureExtractors: featureExtractors,
+          bufferSize: frameSize,
+          hopSize: hopSize,
+          windowingFunction: "hanning",
+        });
+
+        extractor1.get("mfcc", (features) => {
+          console.log("mfcc1: ", features);
+          setMFCC1(features);
+        });
+
+        extractor2.get("mfcc", (features) => {
+          console.log("mfcc2: ", features);
+          setMFCC2(features);
+        });
+
+        extractor1.start();
+
+        source1.start(0);
+
+        source1.onended = () => {
+          extractor2.start();
+          source2.start(0);
+          const calculateDistance = () => {
+            if (mfcc1 && mfcc2) {
+              console.log(mfcc1, mfcc2);
+              setResult(
+                calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
+              );
+            } else {
+              setTimeout(calculateDistance, 100);
+            }
+          };
+          calculateDistance();
+        };
       })
       .catch((err) => console.log(err));
   };

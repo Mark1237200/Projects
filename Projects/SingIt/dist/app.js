@@ -13,10 +13,10 @@
 /*!********************!*\
   !*** ./src/App.js ***!
   \********************/
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.a(module, async function (__webpack_handle_async_dependencies__, __webpack_async_result__) { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_acoustic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/acoustic */ \"./src/utils/acoustic.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_utils_acoustic__WEBPACK_IMPORTED_MODULE_1__]);\n_utils_acoustic__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\nfunction App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"hi result is : \", _utils_acoustic__WEBPACK_IMPORTED_MODULE_1__.result);\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });\n\n//# sourceURL=webpack://singit/./src/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_Acoustic_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/Acoustic.js */ \"./src/utils/Acoustic.js\");\n\n\nfunction App() {\n  // const audio = new Audio();\n  // console.log(audio.canPlayType(\"audio/mpeg\")); // \"maybe\", \"probably\", or \"\"\n  // console.log(audio.canPlayType(\"audio/wav\")); // \"maybe\", \"probably\", or \"\"\n  // console.log(audio.canPlayType(\"audio/ogg\"));\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"\\uC815\\uD655\\uB3C4\\uB294 \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_Acoustic_js__WEBPACK_IMPORTED_MODULE_1__.Acoustic, null), \" \\uC785\\uB2C8\\uB2E4.\");\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack://singit/./src/App.js?");
 
 /***/ }),
 
@@ -24,21 +24,21 @@ eval("__webpack_require__.a(module, async function (__webpack_handle_async_depen
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.a(module, async function (__webpack_handle_async_dependencies__, __webpack_async_result__) { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./src/App.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_App__WEBPACK_IMPORTED_MODULE_2__]);\n_App__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\nvar root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById(\"root\"));\nroot.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)));\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });\n\n//# sourceURL=webpack://singit/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./src/App.js\");\n\n\n\nconst root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById(\"root\"));\nroot.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)));\n\n//# sourceURL=webpack://singit/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/utils/acoustic.js":
+/***/ "./src/utils/Acoustic.js":
 /*!*******************************!*\
-  !*** ./src/utils/acoustic.js ***!
+  !*** ./src/utils/Acoustic.js ***!
   \*******************************/
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.a(module, async function (__webpack_handle_async_dependencies__, __webpack_async_result__) { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"result\": function() { return /* binding */ result; }\n/* harmony export */ });\n/* harmony import */ var meyda__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! meyda */ \"./node_modules/meyda/dist/web/meyda.min.js\");\n/* harmony import */ var meyda__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(meyda__WEBPACK_IMPORTED_MODULE_0__);\n\nvar audioContext = new AudioContext();\nvar audioFile1 = await fetch(\"music/example.mp3\");\nvar audioFile2 = await fetch(\"music/sample.m4a\");\nvar audioBuffer1 = await audioContext.decodeAudioData(await audioFile1.arrayBuffer());\nvar audioBuffer2 = await audioContext.decodeAudioData(await audioFile2.arrayBuffer());\n\n// const bufferLength = audioBuffer.length;\n// const sampleRate = audioBuffer.sampleRate;\nvar frameSize = 2048;\nvar hopSize = 512;\nvar fftSize = 2048;\nvar melBands = 26;\nvar mfccs = 13;\nvar featureExtractors = {\n  mfcc: {\n    extractor: \"mfcc\",\n    bufferSize: frameSize,\n    hopSize: hopSize,\n    fftSize: fftSize,\n    melBands: melBands,\n    mfccs: mfccs\n  }\n};\nvar extractor1 = meyda__WEBPACK_IMPORTED_MODULE_0__.createMeydaAnalyzer({\n  audioContext: audioContext,\n  source: audioBuffer1,\n  featureExtractors: featureExtractors,\n  bufferSize: frameSize,\n  hopSize: hopSize,\n  windowingFunction: \"hann\"\n});\nvar extractor2 = meyda__WEBPACK_IMPORTED_MODULE_0__.createMeydaAnalyzer({\n  audioContext: audioContext,\n  source: audioBuffer2,\n  featureExtractors: featureExtractors,\n  bufferSize: frameSize,\n  hopSize: hopSize,\n  windowingFunction: \"hann\"\n});\nvar mfcc1 = await extractor1.get(\"mfcc\");\nvar mfcc2 = await extractor2.get(\"mfcc\");\nfunction euclideanDistance(x, y) {\n  var distance = 0;\n  for (var i = 0; i < x.length; i++) {\n    distance += Math.pow(x[i] - y[i], 2);\n  }\n  return Math.sqrt(distance);\n}\nfunction calculateMFCCDistance(mfcc1, mfcc2) {\n  var distance = 0;\n  for (var i = 0; i < mfcc1.length; i++) {\n    distance += euclideanDistance(mfcc1[i], mfcc2[i]);\n  }\n  return distance / mfcc1.length;\n}\nfunction calculateDTWDistance(seq1, seq2, distanceFunction) {\n  var DTW = [];\n  var n = seq1.length;\n  var m = seq2.length;\n  for (var i = 0; i < n + 1; i++) {\n    DTW[i] = [];\n    for (var j = 0; j < m + 1; j++) {\n      DTW[i][j] = Infinity;\n    }\n  }\n  DTW[0][0] = 0;\n  for (var _i = 1; _i < n + 1; _i++) {\n    for (var _j = 1; _j < m + 1; _j++) {\n      var cost = distanceFunction(seq1[_i - 1], seq2[_j - 1]);\n      DTW[_i][_j] = cost + Math.min(DTW[_i - 1][_j], DTW[_i][_j - 1], DTW[_i - 1][_j - 1]);\n    }\n  }\n  return DTW[n][m];\n}\nvar result = console.log(calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance));\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://singit/./src/utils/acoustic.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Acoustic\": function() { return /* binding */ Acoustic; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var meyda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! meyda */ \"./node_modules/meyda/dist/web/meyda.min.js\");\n/* harmony import */ var meyda__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(meyda__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst socket = new WebSocket(\"ws://localhost:3000\");\nsocket.onerror = function (event) {\n  console.error(\"WebSocket error:\", event);\n};\nsocket.onopen = function (event) {\n  console.log(\"WebSocket connection established\");\n};\nsocket.onclose = function (event) {\n  console.log(\"WebSocket connection closed:\", event.code, event.reason);\n};\nsocket.onmessage = function (event) {\n  console.log(\"Received message:\", event.data);\n};\nfunction Acoustic() {\n  const audioContextRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);\n  // const audioContext = new AudioContext();\n  const [result, setResult] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(\"\");\n  const [mfcc1, setMFCC1] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);\n  const [mfcc2, setMFCC2] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);\n\n  // const bufferLength = audioBuffer.length;\n  // const sampleRate = audioBuffer.sampleRate;\n  const frameSize = 2048;\n  const hopSize = 512;\n  const fftSize = 2048;\n  const melBands = 26;\n  const mfccs = 13;\n  const featureExtractors = {\n    mfcc: {\n      extractor: \"mfcc\",\n      bufferSize: frameSize,\n      hopSize: hopSize,\n      fftSize: fftSize,\n      melBands: melBands,\n      mfccs: mfccs\n    }\n  };\n  function euclideanDistance(x, y) {\n    let distance = 0;\n    for (let i = 0; i < x.length; i++) {\n      distance += Math.pow(x[i] - y[i], 2);\n    }\n    return Math.sqrt(distance);\n  }\n  function calculateMFCCDistance(mfcc1, mfcc2) {\n    let distance = 0;\n    for (let i = 0; i < mfcc1.length; i++) {\n      distance += euclideanDistance(mfcc1[i], mfcc2[i]);\n    }\n    return distance / mfcc1.length;\n  }\n  function calculateDTWDistance(seq1, seq2, distanceFunction) {\n    const DTW = [];\n    const n = seq1.length;\n    const m = seq2.length;\n    for (let i = 0; i < n + 1; i++) {\n      DTW[i] = [];\n      for (let j = 0; j < m + 1; j++) {\n        DTW[i][j] = Infinity;\n      }\n    }\n    DTW[0][0] = 0;\n    for (let i = 1; i < n + 1; i++) {\n      for (let j = 1; j < m + 1; j++) {\n        const cost = distanceFunction(seq1[i - 1], seq2[j - 1]);\n        DTW[i][j] = cost + Math.min(DTW[i - 1][j], DTW[i][j - 1], DTW[i - 1][j - 1]);\n      }\n    }\n    return DTW[n][m];\n  }\n  const handleButtonClick = () => {\n    const audioContext = new AudioContext();\n    let audioBuffer1, audioBuffer2;\n    let source1, source2;\n    fetch(\"music/example.wav\").then(response => {\n      return response.arrayBuffer();\n    }).then(arrayBuffer => {\n      return audioContext.decodeAudioData(arrayBuffer);\n    }).then(audioBuffer => {\n      audioBuffer1 = audioBuffer;\n      return fetch(\"music/example.mp3\").then(response => {\n        return response.arrayBuffer();\n      }).then(arrayBuffer => {\n        return audioContext.decodeAudioData(arrayBuffer);\n      });\n    }).then(audioBuffer => {\n      audioBuffer2 = audioBuffer;\n      source1 = audioContext.createBufferSource();\n      source1.buffer = audioBuffer1;\n      source1.connect(audioContext.destination);\n      source2 = audioContext.createBufferSource();\n      source2.buffer = audioBuffer2;\n      source2.connect(audioContext.destination);\n      const extractor1 = meyda__WEBPACK_IMPORTED_MODULE_1__.createMeydaAnalyzer({\n        audioContext: audioContext,\n        source: source1,\n        featureExtractors: featureExtractors,\n        bufferSize: frameSize,\n        hopSize: hopSize,\n        windowingFunction: \"hanning\"\n      });\n      const extractor2 = meyda__WEBPACK_IMPORTED_MODULE_1__.createMeydaAnalyzer({\n        audioContext: audioContext,\n        source: source2,\n        featureExtractors: featureExtractors,\n        bufferSize: frameSize,\n        hopSize: hopSize,\n        windowingFunction: \"hanning\"\n      });\n      extractor1.get(\"mfcc\", features => {\n        console.log(\"mfcc1: \", features);\n        setMFCC1(features);\n      });\n      extractor2.get(\"mfcc\", features => {\n        console.log(\"mfcc2: \", features);\n        setMFCC2(features);\n      });\n      extractor1.start();\n      source1.start(0);\n      source1.onended = () => {\n        extractor2.start();\n        source2.start(0);\n        const calculateDistance = () => {\n          if (mfcc1 && mfcc2) {\n            console.log(mfcc1, mfcc2);\n            setResult(calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance));\n          } else {\n            setTimeout(calculateDistance, 100);\n          }\n        };\n        calculateDistance();\n      };\n    }).catch(err => console.log(err));\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    onClick: handleButtonClick\n  }, \"Start AudioContext\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"\\uC815\\uD655\\uB3C4\\uB294 \\\"\", result, \"\\\" \\uC785\\uB2C8\\uB2E4.\"));\n}\n\n\n//# sourceURL=webpack://singit/./src/utils/Acoustic.js?");
 
 /***/ }),
 
@@ -159,75 +159,6 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	!function() {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = function(queue) {
-/******/ 			if(queue && !queue.d) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach(function(fn) { fn.r--; });
-/******/ 				queue.forEach(function(fn) { fn.r-- ? fn.r++ : fn(); });
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = function(deps) { return deps.map(function(dep) {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then(function(r) {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, function(e) {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = function(fn) { fn(queue); };
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = function() {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}); };
-/******/ 		__webpack_require__.a = function(module, body, hasAwait) {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = 1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise(function(resolve, rej) {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = function(fn) { queue && fn(queue), depQueues.forEach(fn), promise["catch"](function() {}); };
-/******/ 			module.exports = promise;
-/******/ 			body(function(deps) {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = function() { return currentDeps.map(function(d) {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}); }
-/******/ 				var promise = new Promise(function(resolve) {
-/******/ 					fn = function() { resolve(getResult); };
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = function(q) { q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))); };
-/******/ 					currentDeps.map(function(dep) { dep[webpackQueues](fnQueue); });
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, function(err) { (err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue); });
-/******/ 			queue && (queue.d = 0);
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules

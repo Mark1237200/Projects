@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import * as meyda from "meyda";
 
-const socket = new WebSocket("ws://localhost:8080");
+const socket = new WebSocket("ws://localhost:3000");
 
 socket.onerror = function (event) {
   console.error("WebSocket error:", event);

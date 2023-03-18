@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import * as meyda from "meyda";
 
 const socket = new WebSocket("ws://localhost:3000");
 
@@ -13,6 +12,10 @@ socket.onopen = function (event) {
 
 socket.onclose = function (event) {
   console.log("WebSocket connection closed:", event.code, event.reason);
+};
+
+socket.onmessage = function (event) {
+  console.log("Received message:", event.data);
 };
 
 function Acoustic() {
@@ -39,27 +42,6 @@ function Acoustic() {
       melBands: melBands,
       mfccs: mfccs,
     },
-  };
-
-  const initAudioContext = async () => {
-    try {
-      // AudioContext가 이미 존재하는 경우, 반환하고 끝냅니다.
-      if (audioContextRef.current) return audioContextRef.current;
-
-      // AudioContext 생성
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioContext = new AudioContext();
-
-      // AudioContext를 시작합니다.
-      await audioContext.resume();
-
-      // audioContextRef.current를 업데이트 합니다.
-      audioContextRef.current = audioContext;
-
-      return audioContext;
-    } catch (error) {
-      console.log("Error initializing AudioContext: ", error);
-    }
   };
 
   function euclideanDistance(x, y) {
@@ -101,83 +83,185 @@ function Acoustic() {
   }
 
   const handleButtonClick = () => {
-    const audioContext = initAudioContext();
+    const audioContext = new AudioContext();
+
+    let audioBuffer1, audioBuffer2;
+    let source1, source2;
+
     fetch("music/example.wav")
       .then((response) => {
-        response.arrayBuffer();
+        return response.arrayBuffer();
       })
       .then((arrayBuffer) => {
-        console.log(arrayBuffer, audioContext);
-        audioContext.decodeAudioData(arrayBuffer);
+        return audioContext.decodeAudioData(arrayBuffer);
       })
-      .then((audioBuffer1) => {
-        fetch("music/example.mp3")
-          .then((response) => response.arrayBuffer())
-          .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer))
-          .then((audioBuffer2) => {
-            const source1 = audioContext.createBufferSource();
-            source1.buffer = audioBuffer1;
-            source1.connect(audioContext.destination);
-
-            const source2 = audioContext.createBufferSource();
-            source2.buffer = audioBuffer2;
-            source2.connect(audioContext.destination);
-
-            const extractor1 = meyda.createMeydaAnalyzer({
-              audioContext: audioContext,
-              source: source1,
-              featureExtractors: featureExtractors,
-              bufferSize: frameSize,
-              hopSize: hopSize,
-              windowingFunction: "hanning",
-            });
-
-            const extractor2 = meyda.createMeydaAnalyzer({
-              audioContext: audioContext,
-              source: source2,
-              featureExtractors: featureExtractors,
-              bufferSize: frameSize,
-              hopSize: hopSize,
-              windowingFunction: "hanning",
-            });
-
-            extractor1.get("mfcc", (features) => {
-              console.log("mfcc1: ", features);
-              setMFCC1(features);
-            });
-
-            extractor2.get("mfcc", (features) => {
-              console.log("mfcc2: ", features);
-              setMFCC2(features);
-            });
-
-            extractor1.start();
-
-            source1.start(0);
-            source2.start(0);
-
-            const calculateDistance = () => {
-              if (mfcc1 && mfcc2) {
-                console.log(mfcc1, mfcc2);
-                setResult(
-                  calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
-                );
-              } else {
-                setTimeout(calculateDistance, 100);
-              }
-            };
-            calculateDistance();
+      .then((audioBuffer) => {
+        audioBuffer1 = audioBuffer;
+        return fetch("music/example.mp3")
+          .then((response) => {
+            return response.arrayBuffer();
+          })
+          .then((arrayBuffer) => {
+            return audioContext.decodeAudioData(arrayBuffer);
           });
+      })
+      .then((audioBuffer) => {
+        audioBuffer2 = audioBuffer;
+
+        source1 = audioContext.createBufferSource();
+        source1.buffer = audioBuffer1;
+        source1.connect(audioContext.destination);
+
+        source2 = audioContext.createBufferSource();
+        source2.buffer = audioBuffer2;
+        source2.connect(audioContext.destination);
+
+        extractor1.get("mfcc", (features) => {
+          console.log("mfcc1: ", features);
+          setMFCC1(features);
+        });
+
+        extractor2.get("mfcc", (features) => {
+          console.log("mfcc2: ", features);
+          setMFCC2(features);
+        });
+
+        extractor1.start();
+
+        source1.start(0);
+
+        source1.onended = () => {
+          extractor2.start();
+          source2.start(0);
+          const calculateDistance = () => {
+            if (mfcc1 && mfcc2) {
+              console.log(mfcc1, mfcc2);
+              setResult(
+                calculateDTWDistance(mfcc1, mfcc2, calculateMFCCDistance)
+              );
+            } else {
+              setTimeout(calculateDistance, 100);
+            }
+          };
+          calculateDistance();
+        };
       })
       .catch((err) => console.log(err));
   };
 
-  return (
-    <>
-      <button onClick={handleButtonClick}>Start AudioContext</button>
-      <div>정확도는 "{result}" 입니다.</div>
-    </>
-  );
+  function calculatePowerSpectrum(buffer, bufferSize) {
+    const powerSpectrum = new Float32Array(bufferSize / 2);
+    for (let i = 0; i < bufferSize / 2; i++) {
+      const real = buffer[i * 2];
+      const imaginary = buffer[i * 2 + 1];
+      powerSpectrum[i] = Math.pow(real, 2) + Math.pow(imaginary, 2);
+    }
+    return powerSpectrum;
+  }
+
+  function applyMelFilterbank(powerSpectrum, sampleRate, melBands, fftSize) {
+    const melFilterbank = [];
+    const lowerMelFreq = 0;
+    const upperMelFreq = melScale(fftSize / 2, sampleRate);
+    const melFreqIncrement = (upperMelFreq - lowerMelFreq) / (melBands + 1);
+
+    for (let i = 0; i < melBands + 2; i++) {
+      melFilterbank[i] = melScale(
+        lowerMelFreq + i * melFreqIncrement,
+        sampleRate
+      );
+    }
+
+    const filterbankIndices = new Array(melBands);
+    for (let i = 0; i < melBands; i++) {
+      const lower = Math.floor(
+        (melFilterbank[i] / fftSize) * (fftSize / 2 + 1)
+      );
+      const upper = Math.floor(
+        (melFilterbank[i + 2] / fftSize) * (fftSize / 2 + 1)
+      );
+      filterbankIndices[i] = [lower, upper];
+    }
+
+    const melSpectrum = new Float32Array(melBands);
+    for (let i = 0; i < melBands; i++) {
+      let sum = 0;
+      for (let j = filterbankIndices[i][0]; j < filterbankIndices[i][1]; j++) {
+        sum +=
+          powerSpectrum[j] *
+          getTriangleValue(
+            j,
+            melFilterbank[i],
+            melFilterbank[i + 1],
+            melFilterbank[i + 2]
+          );
+      }
+      melSpectrum[i] = sum;
+    }
+    return melSpectrum;
+  }
+
+  function melToFreq(mel) {
+    return 700 * (Math.pow(10, mel / 2595) - 1);
+  }
+
+  function melScale(mel, sampleRate) {
+    return 2595 * Math.log10(1 + mel / 700);
+  }
+
+  function getMFCCs(spectrum, melBands, mfccs) {
+    const mfccsCoefficients = [];
+    for (let i = 0; i < mfccs; i++) {
+      mfccsCoefficients[i] = 0;
+      for (let j = 0; j < melBands; j++) {
+        const magnitude = spectrum[j];
+        const frequency = melToFreq(j + 1);
+        const coefficient = (i * frequency * Math.PI) / 22050;
+        const cosine = Math.cos(coefficient);
+        mfccsCoefficients[i] += magnitude * cosine;
+      }
+      mfccsCoefficients[i] = Math.log(mfccsCoefficients[i] + 1);
+    }
+    return mfccsCoefficients;
+  }
+
+  function calculateDistance() {
+    if (mfcc1 !== null && mfcc2 !== null) {
+      const distance = DTW(mfcc1, mfcc2);
+      setResult(distance);
+      console.log("DTW distance:", distance);
+    }
+  }
+
+  function getTriangleValue(k, f1, f2, f3) {
+    if (k < f1 || k > f3) {
+      return 0;
+    }
+    if (k >= f1 && k < f2) {
+      return (k - f1) / (f2 - f1);
+    }
+    if (k >= f2 && k <= f3) {
+      return (f3 - k) / (f3 - f2);
+    }
+  }
+
+  source2.onended = () => {
+    console.log("Comparing the two audio files");
+  };
+
+  setTimeout(() => {
+    source1.stop();
+    source2.stop();
+  }, 8000).catch((error) => {
+    console.error("Error: ", error);
+  });
 }
+
+return (
+  <>
+    <button onClick={handleButtonClick}>Start AudioContext</button>
+    <div>정확도는 "{result}" 입니다.</div>
+  </>
+);
 
 export { Acoustic };

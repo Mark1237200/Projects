@@ -8,11 +8,22 @@
   </head>
   <body>
     <button onclick="joke()">Test</button>
+    <button onclick="test()">Test2</button>
+
     <script>
+      let img = "";
       function joke() {
         fetch("https://api.waifu.pics/sfw/waifu")
           .then((res) => res.json())
-          .then((data) => console.log(data.url));
+          .then((data) => {
+            <!-- console.log(data.url); -->
+            img = data.url;
+          });
+        return img;
+      }
+      joke();
+      function test() {
+        console.log(joke());
       }
     </script>
   </body>

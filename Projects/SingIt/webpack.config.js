@@ -35,4 +35,9 @@ module.exports = {
   experiments: {
     topLevelAwait: true,
   },
+  target: "node",
+  node: {
+    __dirname: false,
+    __filename: false,
+  },
 };

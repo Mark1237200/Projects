@@ -1,10 +1,6 @@
-require("fft-js").fft;
-import { FFT, fft_js } from "fft-js";
-
+const audioContext = new AudioContext();
 // 오디오 파일 로드 함수
-
 async function loadAudio(url) {
-  const audioContext = new AudioContext();
   const response = await fetch(url);
   const arrayBuffer = await response.arrayBuffer();
   const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
@@ -13,8 +9,6 @@ async function loadAudio(url) {
 
 // 오디오 파일에서 MFCC 계산 함수
 function calculateMFCC(audioBuffer) {
-  const fft = new fft_js(buffer.length, options.sampleRate);
-  let buffer = tf.buffer([numFrames, numMfcc]);
   const frameSize = 2048;
   const numCoefficients = 13;
   const melFilterBank = createMelFilterBank(
@@ -38,11 +32,12 @@ function calculateMFCC(audioBuffer) {
         0.5 * (1 - Math.cos((2 * Math.PI * index) / (frameSize - 1)));
       return value * windowCoefficient;
     });
+    console.log(audioData);
 
     // FFT 계산
-    const frequencyDomainData = new Float32Array(frameSize);
-    const fft = new fft(frameSize, audioContext.sampleRate);
-    fft.forward(windowedAudioDataChunk, frequencyDomainData);
+    const frequencyDomainData = new Float32Array(frameSize * 2);
+    const FFT = new fft([1, 0, 1, 0]);
+    FFT.forward(windowedAudioDataChunk, frequencyDomainData);
 
     // Mel 스케일로 변환
     const melDomainData = new Float32Array(numCoefficients);
@@ -179,7 +174,7 @@ async function analyzeAudio(url1, url2) {
   } catch (error) {
     console.error(error);
   }
-  // console.log(fft_js);
+  // console.log(fft);
 }
 
 export { analyzeAudio };

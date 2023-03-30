@@ -1,8 +1,16 @@
 import React from "react";
-import { MFCC } from "./utils/CalculatingMFCCs.js";
+import { Acoustic } from "./utils/Acoustic.js";
 
 function App() {
-  return <button onClick={MFCC}>정확도 계산</button>;
+  // const audio = new Audio();
+  // console.log(audio.canPlayType("audio/mpeg")); // "maybe", "probably", or ""
+  // console.log(audio.canPlayType("audio/wav")); // "maybe", "probably", or ""
+  // console.log(audio.canPlayType("audio/ogg"));
+  return (
+    <div>
+      정확도는 <Acoustic /> 입니다.
+    </div>
+  );
 }
 
 export default App;

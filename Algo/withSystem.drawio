@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-19T04:44:48.125Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="yb47tE50OcZUTdoXeQ6r" version="21.4.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-19T04:54:04.287Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="rj0-ptP-du_s1hCIRtce" version="21.4.0" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Process">
-    <mxGraphModel dx="989" dy="549" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1687" dy="936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -79,7 +79,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="dN05hJUzH0ERxJpqTL29-1" value="임상연구 초기설정&lt;br&gt;(사전 스크리닝,&lt;br&gt;CRC, 참여기관 관리)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="650" y="210" width="120" height="60" as="geometry" />
+          <mxGeometry x="624" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dN05hJUzH0ERxJpqTL29-5" value="임상연구 환자모집&lt;br&gt;(등록중)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="350" y="300" width="120" height="60" as="geometry" />
@@ -214,7 +214,7 @@
           <mxGeometry x="990" y="632" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dN05hJUzH0ERxJpqTL29-53" value="임상연구 신청" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="640" y="110" width="120" height="60" as="geometry" />
+          <mxGeometry x="624" y="110" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dN05hJUzH0ERxJpqTL29-54" value="등록현황 자동반영&lt;br&gt;(초대완료)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="1450" y="840" width="120" height="60" as="geometry" />

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-26T00:23:56.166Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="f8w0-6xZWiNtrUrhF3_f" version="21.5.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-26T02:12:21.557Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="DRCewWJLYEn_btRi92tx" version="21.5.0" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Process">
-    <mxGraphModel dx="1909" dy="1995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
+    <mxGraphModel dx="785" dy="1643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -179,7 +179,7 @@
         <mxCell id="c4fgeOOmXQ9EXnsg8hB--18" value="적합한가?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="943" y="656" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="c4fgeOOmXQ9EXnsg8hB--24" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#ff0000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="c4fgeOOmXQ9EXnsg8hB--26" edge="1">
+        <mxCell id="c4fgeOOmXQ9EXnsg8hB--24" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="c4fgeOOmXQ9EXnsg8hB--26" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1061" y="696" as="targetPoint" />
             <mxPoint x="923" y="785" as="sourcePoint" />
@@ -201,7 +201,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="c4fgeOOmXQ9EXnsg8hB--23" value="신청기관&lt;br&gt;전원받을&lt;br&gt;의사여부" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="937" y="800" width="92" height="90" as="geometry" />
+          <mxGeometry x="937" y="804" width="92" height="90" as="geometry" />
         </mxCell>
         <mxCell id="c4fgeOOmXQ9EXnsg8hB--30" value="검사완료" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1" target="RC8-tJsdM-_UqJGTamMc-2">
           <mxGeometry relative="1" as="geometry">
@@ -210,7 +210,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="c4fgeOOmXQ9EXnsg8hB--25" value="환자 전원&lt;br&gt;전원가능여부,&lt;br&gt;검사결과 등록" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1100" y="821" width="90" height="45" as="geometry" />
+          <mxGeometry x="1100" y="825" width="90" height="45" as="geometry" />
         </mxCell>
         <mxCell id="c4fgeOOmXQ9EXnsg8hB--29" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2b00ff;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="c4fgeOOmXQ9EXnsg8hB--23" target="c4fgeOOmXQ9EXnsg8hB--25" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -266,7 +266,7 @@
           <mxGeometry x="1110" y="182" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RC8-tJsdM-_UqJGTamMc-2" value="전원접수 완료" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1330" y="825" width="120" height="39" as="geometry" />
+          <mxGeometry x="1330" y="829" width="120" height="39" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-27T00:59:39.742Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="_RNnMKcsDBsNaaIJJ_6_" version="21.5.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-27T02:04:53.894Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="ZJ5JC9IcO2NFyF_rOlw3" version="21.5.0" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Process">
-    <mxGraphModel dx="600" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1114" dy="999" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -491,6 +491,151 @@
         </mxCell>
         <mxCell id="3ZlCAxBlEpyybnfyQgYE-1" value="MY 임상연구" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeColor=#ff0000;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="1150" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="JNnk6WrKdZgz-KICYWy0" name="Process-간단">
+    <mxGraphModel dx="678" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ffbb00;" vertex="1" parent="1">
+          <mxGeometry x="775" y="80" width="455" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="V_OUkYND7VNnkdiCd76C-1" value="전원문의&lt;br&gt;(의뢰 기관)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="1">
+          <mxGeometry x="1095" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-1" target="OHf85bjaGHu7UBS7nk9b-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-1" value="임상연구 등록&lt;br&gt;(준비중)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-2" value="초기설정" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;strokeColor=#ff0000;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1140" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1140" y="310" />
+              <mxPoint x="1140" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-23" value="NO (검사결과)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OHf85bjaGHu7UBS7nk9b-22">
+          <mxGeometry x="0.1226" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-6" value="환자 검토" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="290" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-13" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#ff0000;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-7" target="OHf85bjaGHu7UBS7nk9b-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="669.7777777777776" y="320.0000000000001" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="260" />
+              <mxPoint x="360" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-14" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#002aff;entryX=0.011;entryY=0.294;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="776.0049999999999" y="179.95999999999992" as="targetPoint" />
+            <mxPoint x="716" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-7" value="전원접수&lt;br&gt;게시판 열람&lt;br&gt;승인 요청" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="130" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-10" target="xFP5XDdMQ-tBy0jJvd5M-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-10" value="임상연구 진행&lt;br&gt;(진행중)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.067;exitY=0.168;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="V_OUkYND7VNnkdiCd76C-1" target="xFP5XDdMQ-tBy0jJvd5M-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1095" y="165" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1095" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#ff0000;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1155" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="120" />
+              <mxPoint x="1155" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-19" value="단순문의(응답완료)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OHf85bjaGHu7UBS7nk9b-18">
+          <mxGeometry x="-0.1247" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#1100ff;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-21" value="전원의뢰&lt;br&gt;(접수완료)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OHf85bjaGHu7UBS7nk9b-20">
+          <mxGeometry x="-0.1745" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-17" value="환자&lt;br&gt;의뢰인가?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-24" value="YES(검사중)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#002aff;entryX=-0.018;entryY=0.499;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="OHf85bjaGHu7UBS7nk9b-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="919.9999999999998" y="369.99947368421056" as="targetPoint" />
+            <mxPoint x="840" y="370.21000000000004" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-26" value="검사완료" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OHf85bjaGHu7UBS7nk9b-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1185" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OHf85bjaGHu7UBS7nk9b-25" value="검사결과 업데이트" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-4" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.83;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#ff0000;" edge="1" parent="1" source="xFP5XDdMQ-tBy0jJvd5M-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1095" y="199.80000000000007" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-5" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1100ff;" edge="1" parent="1" source="xFP5XDdMQ-tBy0jJvd5M-1" target="OHf85bjaGHu7UBS7nk9b-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="179.91228070175436" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-1" value="사전&lt;br&gt;스크리닝" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-9" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;임상연구 준비중때 전원문의 활성&lt;/font&gt;&lt;/b&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="830" y="50" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-11" value="전원문의 활성화" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xFP5XDdMQ-tBy0jJvd5M-13" value="&lt;b&gt;&lt;font color=&quot;#ff0000&quot; style=&quot;font-size: 15px;&quot;&gt;오른쪽 전원문의 프로세스와 같음&lt;/font&gt;&lt;/b&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="490" width="320" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

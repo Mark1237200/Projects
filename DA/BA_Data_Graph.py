@@ -12,7 +12,7 @@ from BA_Character_Crawling import get_crawling_data
 character_data = get_crawling_data()
 
 # 캐릭터 이미지가 저장된 폴더 경로
-image_folder = r'C:\Users\Mark\Desktop\Mark1237200.github.io\DA\BA_Character_Img'
+image_folder = 'DA\BA_Character_Img'
 
 def set_korean_font():
     plt.rc('font', family='NanumGothic')
@@ -53,11 +53,11 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     y_positions = np.arange(len(characters)) * 5  # 간격을 늘리기 위해 값을 곱함
 
     # 수평 막대 그래프 그리기 (막대 높이 유지)
-    bar_height = 4  # 막대 높이를 유지
+    bar_height = 4.2  # 막대 높이를 유지
     ax.barh(y_positions, counts, color='skyblue', edgecolor='black', height=bar_height)
 
     # 캐릭터 이미지 표시
-    image_size = 3  # 이미지 크기를 정사각형으로 설정
+    image_size = 0.5  # 이미지 크기를 정사각형으로 설정
     for i, character in enumerate(characters):
         img_path = os.path.join(image_folder, f"{character}.png")
         if os.path.exists(img_path):
@@ -67,19 +67,21 @@ def plot_character_bar_chart(character_data, image_folder, parent):
         else:
             print(f"이미지 {img_path} 찾을 수 없음.")
 
+    # y축 범위 조절 (여백 조절)
+    ax.set_ylim(-2, y_positions[-1] + 2)  # y축 상하한 조절
+
+    # y축 레이블 간격 조절
+    ax.tick_params(axis='y', pad=20)  # 레이블과 축 간의 패딩(간격) 조절
+
     ax.set_xlabel('언급 횟수')
     ax.set_title('커뮤니티에 가장 많이 언급된 학생')
 
     # y축 레이블 설정 및 레이블 간격 조정
     ax.set_yticks(y_positions)  # y축 위치를 y_positions로 설정
     ax.set_yticklabels(characters, fontsize=13)  # y축 레이블 설정
-    ax.tick_params(axis='y', pad=10)  # 레이블과 축 간의 패딩(간격) 조정
 
     # x축 범위 조정
     ax.set_xlim(0, max(counts) * 1.5)
-
-    # y축 간격 맞추기 위해 ylim 조정
-    ax.set_ylim(-1, y_positions[-1] + 1)  # y축의 상한과 하한을 설정
 
     # 불필요한 x축 막대 그래프 제거
     x = np.arange(0)

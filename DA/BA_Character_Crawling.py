@@ -24,7 +24,7 @@ has_next_page = True
 page = 1
 
 # 최대 페이지 수 제한
-max_pages = 100
+max_pages = 10
 
 # 검색할 캐릭터 목록
 character_names = [

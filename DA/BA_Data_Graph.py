@@ -53,20 +53,26 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     y_positions = np.arange(len(characters)) * 5  # 간격을 늘리기 위해 값을 곱함
 
     # 수평 막대 그래프 그리기 (막대 높이 유지)
-    bar_height = 4.2  # 막대 높이를 유지
+    bar_height = 4  # 막대 높이를 유지
     ax.barh(y_positions, counts, color='skyblue', edgecolor='black', height=bar_height)
 
     # 캐릭터 이미지 표시
-    image_size = 0.5  # 이미지 크기를 정사각형으로 설정
+    image_size = 2
     for i, character in enumerate(characters):
         img_path = os.path.join(image_folder, f"{character}.png")
         if os.path.exists(img_path):
             img = mpimg.imread(img_path)
-            # 이미지 좌표 설정 (정사각형으로 크기 조정)
-            ax.imshow(img, aspect='auto', extent=[max(counts) * 1.05, max(counts) * 1.05 + image_size, y_positions[i] - (bar_height / 2), y_positions[i] + (bar_height / 2)], zorder=2)  # 이미지 높이 조정
+            
+            # 이미지 크기 설정 (일정한 크기를 유지하도록 설정)
+            img_extent = [
+            max(counts) * 1.05,  # x 시작 위치
+            max(counts) * 1.05 + image_size,  # x 끝 위치
+            y_positions[i] - (bar_height / 2),  # y 시작 위치
+            y_positions[i] + (bar_height / 2)  # y 끝 위치
+        ]
+            ax.imshow(img, aspect='auto', extent=img_extent, zorder=2)  # 이미지 높이 조정
         else:
             print(f"이미지 {img_path} 찾을 수 없음.")
-
     # y축 범위 조절 (여백 조절)
     ax.set_ylim(-2, y_positions[-1] + 2)  # y축 상하한 조절
 
@@ -83,7 +89,6 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     # x축 범위 조정
     ax.set_xlim(0, max(counts) * 1.5)
 
-    # 불필요한 x축 막대 그래프 제거
     x = np.arange(0)
     plt.bar(x, 0.1)
 

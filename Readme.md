@@ -9,6 +9,3 @@
 <br>
 <br>
 
-### Portfolio
-
-https://mark1237200.github.io/

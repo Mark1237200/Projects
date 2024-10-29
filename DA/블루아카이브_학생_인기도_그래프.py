@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 import os
 import matplotlib.image as mpimg
 import numpy as np
 import tkinter as tk
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import datetime
 from BA_Character_Crawling import get_crawling_data
 
 # 캐릭터 등장 횟수 데이터
@@ -29,6 +29,14 @@ def debug_character_data(combined_data, filtered_data):
 # 막대 그래프 그리기
 def plot_character_bar_chart(character_data, image_folder, parent):
     set_korean_font()  # 한글 폰트 설정
+
+    today = datetime.date.today()
+    year = today.year
+    month = today.month
+    week_number = (today.day - 1) // 7 + 1  # 1일부터 시작하여 주차 계산
+
+    # PDF 파일 저장 경로 설정
+    save_path = f"DA/__pycache__/{year}년 {month}월 {week_number}째주.pdf"
 
     # group_counts와 individual_counts 합치기
     combined_data = {**character_data['group_counts'], **character_data['individual_counts']}
@@ -91,6 +99,8 @@ def plot_character_bar_chart(character_data, image_folder, parent):
 
     x = np.arange(0)
     plt.bar(x, 0.1)
+
+    plt.savefig(save_path, format='pdf')
 
     canvas = FigureCanvasTkAgg(fig, master=parent)
     canvas.draw()

@@ -87,7 +87,8 @@ def crawl_titles(driver):
     titles = driver.find_elements(By.CSS_SELECTOR, 'td.gall_tit.ub-word > a')
     for title in titles:
         for name in character_names:
-            if re.search(name, title.text, re.IGNORECASE):  # 대소문자 구분하지 않음
+            pattern = rf"\b{name}\b"
+            if re.search(pattern, title.text, re.IGNORECASE):  # 대소문자 구분하지 않음
                 character_counts[name] += 1
 
 # URL로 접속

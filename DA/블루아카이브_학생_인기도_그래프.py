@@ -33,10 +33,10 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     today = datetime.date.today()
     year = today.year
     month = today.month
-    week_number = (today.day - 1) // 7 + 1  # 1일부터 시작하여 주차 계산
+    day = today.day
 
     # PDF 파일 저장 경로 설정
-    save_path = f"DA/__pycache__/{year}년 {month}월 {week_number}째주.pdf"
+    save_path = f"DA/__pycache__/{year}.{month}.{day}.pdf"
 
     # group_counts와 individual_counts 합치기
     combined_data = {**character_data['group_counts'], **character_data['individual_counts']}
@@ -55,28 +55,27 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     characters, counts = zip(*sorted_data)
 
     # figure 크기 설정 
-    fig, ax = plt.subplots(figsize=(12, len(characters) * 0.7))  # 캐릭터 수에 맞춰 세로 크기 조정
+    fig, ax = plt.subplots(figsize=(12, len(characters) * 1.3))  # 캐릭터 수에 맞춰 세로 크기 조정
 
-    # y 좌표를 더 띄우기 위해 spacing 추가
-    y_positions = np.arange(len(characters)) * 5  # 간격을 늘리기 위해 값을 곱함
+    y_positions = np.arange(len(characters)) * 5
 
     # 수평 막대 그래프 그리기 (막대 높이 유지)
-    bar_height = 4  # 막대 높이를 유지
+    bar_height = 2.2  # 막대 높이를 유지
     ax.barh(y_positions, counts, color='skyblue', edgecolor='black', height=bar_height)
 
     # 캐릭터 이미지 표시
-    image_size = 2
+    image_size = 3
     for i, character in enumerate(characters):
         img_path = os.path.join(image_folder, f"{character}.png")
         if os.path.exists(img_path):
             img = mpimg.imread(img_path)
             
-            # 이미지 크기 설정 (일정한 크기를 유지하도록 설정)
+            # 이미지 크기 설정 
             img_extent = [
             max(counts) * 1.05,  # x 시작 위치
             max(counts) * 1.05 + image_size,  # x 끝 위치
-            y_positions[i] - (bar_height / 2),  # y 시작 위치
-            y_positions[i] + (bar_height / 2)  # y 끝 위치
+            y_positions[i] - (bar_height),  # y 시작 위치
+            y_positions[i] + (bar_height)  # y 끝 위치
         ]
             ax.imshow(img, aspect='auto', extent=img_extent, zorder=2)  # 이미지 높이 조정
         else:
@@ -148,7 +147,7 @@ canvas.bind_all("<Button-5>", lambda event: on_mouse_wheel(event, canvas))  # Li
 graph_frame.update_idletasks()
 canvas.configure(scrollregion=canvas.bbox("all"))
 
-# 고정된 캔버스 크기 설정 (너비는 고정하고 높이는 그래프의 전체 크기보다 작게 설정)
+# 고정된 캔버스 크기 설정
 canvas.config(width=800, height=600)  # 가로와 세로 크기 고정
 
 # Tkinter 창 실행

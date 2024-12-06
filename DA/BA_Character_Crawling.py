@@ -16,15 +16,11 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 # 드라이버 설정
 driver = webdriver.Chrome(options=chrome_options)
 
-# DCInside projectmx 갤러리 URL
-url = 'https://gall.dcinside.com/mgallery/board/lists/?id=projectmx'
-
 # 페이지 넘김 여부
-has_next_page = True
 page = 1
 
 # 최대 페이지 수 제한
-max_pages = 25
+max_pages = 80
 
 # 검색할 캐릭터 목록
 character_names = [
@@ -91,27 +87,16 @@ def crawl_titles(driver):
             if re.search(pattern, title.text, re.IGNORECASE):  # 대소문자 구분하지 않음
                 character_counts[name] += 1
 
-# URL로 접속
-driver.get(url)
+for page in range(1, max_pages + 1):  # 페이지 제한 추가
+    url = f'https://gall.dcinside.com/mgallery/board/lists/?id=projectmx&page={page}'
+    driver.get(url)
 
-while has_next_page and page <= max_pages:  # 페이지 제한 추가
-    # 페이지가 로드될 때까지 대기
-    time.sleep(2.5)
+    time.sleep(1.2)
 
     # 현재 페이지에서 게시글 제목 크롤링
-    crawl_titles(driver)
+    crawl_titles(driver) 
 
     print(f"Page {page} 크롤링 완료. ")
-
-    try:
-        # "다음" 버튼 찾기
-        next_button = driver.find_element(By.LINK_TEXT, '다음')
-        # 다음 페이지로 이동
-        next_button.click()
-        page += 1
-    except Exception as e:
-        print(f"다음 페이지로 이동할 수 없습니다: {e}")
-        has_next_page = False  # 오류 발생 시 종료
 
 # 모든 페이지에서 제목 크롤링 완료
 driver.quit()

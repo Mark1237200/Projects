@@ -31,12 +31,11 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     set_korean_font()  # 한글 폰트 설정
 
     today = datetime.date.today()
-    year = today.year
     month = today.month
     day = today.day
 
     # PDF 파일 저장 경로 설정
-    save_path = f"DA/__pycache__/{year}.{month}.{day}.pdf"
+    save_path = f"DA/__pycache__/{month}월{day}일.pdf"
 
     # group_counts와 individual_counts 합치기
     combined_data = {**character_data['group_counts'], **character_data['individual_counts']}
@@ -64,7 +63,7 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     ax.barh(y_positions, counts, color='skyblue', edgecolor='black', height=bar_height)
 
     # 캐릭터 이미지 표시
-    image_size = 3
+    image_size = 10
     for i, character in enumerate(characters):
         img_path = os.path.join(image_folder, f"{character}.png")
         if os.path.exists(img_path):
@@ -87,7 +86,7 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     ax.tick_params(axis='y', pad=20)  # 레이블과 축 간의 패딩(간격) 조절
 
     ax.set_xlabel('언급 횟수')
-    ax.set_title('커뮤니티에 가장 많이 언급된 학생')
+    root.title("학생 인기도 순위 "+ str(month) + "월 " + str(day) + "일")
 
     # y축 레이블 설정 및 레이블 간격 조정
     ax.set_yticks(y_positions)  # y축 위치를 y_positions로 설정
@@ -100,7 +99,7 @@ def plot_character_bar_chart(character_data, image_folder, parent):
     plt.bar(x, 0.1)
 
     plt.savefig(save_path, format='pdf')
-
+    
     canvas = FigureCanvasTkAgg(fig, master=parent)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -146,9 +145,6 @@ canvas.bind_all("<Button-5>", lambda event: on_mouse_wheel(event, canvas))  # Li
 # 스크롤 영역 크기 설정 (캔버스 높이를 데이터 개수에 맞춰서 조정)
 graph_frame.update_idletasks()
 canvas.configure(scrollregion=canvas.bbox("all"))
-
-# 고정된 캔버스 크기 설정
-canvas.config(width=800, height=600)  # 가로와 세로 크기 고정
 
 # Tkinter 창 실행
 root.mainloop()

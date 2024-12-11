@@ -6,21 +6,30 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 import re
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-# 크롬 옵션 설정
-chrome_options = Options()
-chrome_options.add_argument('--headless')  # 브라우저를 띄우지 않고 실행
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument('--disable-extensions')
+options.add_argument('--blink-settings=imagesEnabled=false')
+options.add_argument('--disable-dev-shm-usage')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-blink-features=AutomationControlled')
 
-# 드라이버 설정
-driver = webdriver.Chrome(options=chrome_options)
+# 네트워크 로깅 설정을 options에 추가
+options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
 
-# 페이지 넘김 여부
+# WebDriver 초기화
+driver = webdriver.Chrome(options=options)
+
 page = 1
 
 # 최대 페이지 수 제한
-max_pages = 80
+max_pages = 100
 
 # 검색할 캐릭터 목록
 character_names = [
@@ -80,19 +89,19 @@ character_groups = {
 
 # 크롤링 함수
 def crawl_titles(driver):
-    titles = driver.find_elements(By.CSS_SELECTOR, 'td.gall_tit.ub-word > a')
-    for title in titles:
+    titles_text = [title.text for title in driver.find_elements(By.CSS_SELECTOR, 'td.gall_tit.ub-word > a')]
+    for title in titles_text:
         for name in character_names:
-            pattern = rf"\b{name}\b"
-            if re.search(pattern, title.text, re.IGNORECASE):  # 대소문자 구분하지 않음
+            if re.search(rf"\b{name}\b", title, re.IGNORECASE):  # 대소문자 무시
                 character_counts[name] += 1
 
 for page in range(1, max_pages + 1):  # 페이지 제한 추가
     url = f'https://gall.dcinside.com/mgallery/board/lists/?id=projectmx&page={page}'
     driver.get(url)
 
-    time.sleep(1.2)
-
+    wait = WebDriverWait(driver, 10)
+    wait.until(lambda driver: driver.execute_script("return document.readyState") == "complete")
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "td.gall_tit.ub-word > a")))
     # 현재 페이지에서 게시글 제목 크롤링
     crawl_titles(driver) 
 

@@ -9,7 +9,7 @@ import datetime
 from BA_Character_Crawling import get_crawling_data
 
 # 캐릭터 등장 횟수 데이터
-character_data = get_crawling_data()
+character_data = get_crawling_data(100)
 
 # 캐릭터 이미지가 저장된 폴더 경로
 image_folder = 'DA\BA_Character_Img'

@@ -11,25 +11,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
-options.add_argument('--disable-extensions')
-options.add_argument('--blink-settings=imagesEnabled=false')
-options.add_argument('--disable-dev-shm-usage')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-blink-features=AutomationControlled')
-
-# 네트워크 로깅 설정을 options에 추가
-options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
-
-# WebDriver 초기화
-driver = webdriver.Chrome(options=options)
-
-page = 1
-
-# 최대 페이지 수 제한
-max_pages = 100
+def initialize_driver():
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-extensions')
+    options.add_argument('--blink-settings=imagesEnabled=false')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
+    return webdriver.Chrome(options=options)
 
 # 검색할 캐릭터 목록
 character_names = [
@@ -59,10 +51,6 @@ character_names = [
     '프센세', '센세', '히죽히죽'
 ]
 
-# 캐릭터 이름이 등장한 횟수 저장용 딕셔너리
-character_counts = {name: 0 for name in character_names}
-
-# 그룹별 캐릭터 목록
 character_groups = {
     '정아루': ['뉴아루', '정아루', '새아루'],
     '정리카': ['뉴리카', '정리카', '새리카'],
@@ -87,61 +75,68 @@ character_groups = {
     '선생': ['선생', '센세']
 }
 
+character_counts = {name: 0 for name in character_names}
+
 # 크롤링 함수
-def crawl_titles(driver):
-    titles_text = [title.text for title in driver.find_elements(By.CSS_SELECTOR, 'td.gall_tit.ub-word > a')]
-    for title in titles_text:
-        for name in character_names:
-            if re.search(rf"\b{name}\b", title, re.IGNORECASE):  # 대소문자 무시
-                character_counts[name] += 1
+def crawl_titles(driver, max_pages, character_counts):
+    for page in range(1, max_pages + 1):
+            url = f'https://gall.dcinside.com/mgallery/board/lists/?id=projectmx&page={page}'
+            driver.get(url)
 
-for page in range(1, max_pages + 1):  # 페이지 제한 추가
-    url = f'https://gall.dcinside.com/mgallery/board/lists/?id=projectmx&page={page}'
-    driver.get(url)
+            # 페이지 로딩 대기
+            wait = WebDriverWait(driver, 10)
+            wait.until(lambda driver: driver.execute_script("return document.readyState") == "complete")
+            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "td.gall_tit.ub-word > a")))
 
-    wait = WebDriverWait(driver, 10)
-    wait.until(lambda driver: driver.execute_script("return document.readyState") == "complete")
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "td.gall_tit.ub-word > a")))
-    # 현재 페이지에서 게시글 제목 크롤링
-    crawl_titles(driver) 
+            # 현재 페이지에서 게시글 제목 크롤링
+            titles_text = [title.text for title in driver.find_elements(By.CSS_SELECTOR, 'td.gall_tit.ub-word > a')]
+            for title in titles_text:
+                for name in character_counts.keys():
+                    if re.search(rf"\b{name}\b", title, re.IGNORECASE):  # 대소문자 무시
+                        character_counts[name] += 1
 
-    print(f"Page {page} 크롤링 완료. ")
+            print(f"Page {page} 크롤링 완료.")
 
-# 모든 페이지에서 제목 크롤링 완료
-driver.quit()
+def get_crawling_data(max_pages):
+    character_counts = {name: 0 for name in character_names}
+    driver = initialize_driver()
 
-print("그룹별 캐릭터 등장 횟수:")
-for group, members in character_groups.items():
-    total_count = sum(character_counts[member] for member in members)
-    if total_count > 0:
-        print(f"{group}: {total_count}")
+    try:
+        crawl_titles(driver, max_pages, character_counts)
 
-print("\n개별 캐릭터 등장 횟수:")
-for name, count in character_counts.items():
-    if count > 0 and not any(name in members for members in character_groups.values()):
-        if name == "양복":
-            print(f"검은 양복: {count}")
-        elif name == "쇼쿠호":
-            print(f"쇼쿠호 미사키: {count}")
-        else:
-            print(f"{name}: {count}")
+        group_counts = {}
+        used_characters = set()
+        
+        for group, members in character_groups.items():
+            total_count = sum(character_counts.get(member, 0) for member in members)
+            if total_count > 0:
+                group_counts[group] = total_count
+                used_characters.update(members)
 
-def get_crawling_data():
-    # 그룹별 등장 횟수 계산
-    group_counts = {}
-    used_characters = set()  # 그룹에서 사용된 캐릭터 추적
-    
+        individual_counts = {name: count for name, count in character_counts.items() if count > 0 and name not in used_characters}
+
+        return {
+            'group_counts': group_counts,
+            'individual_counts': individual_counts
+        }
+    finally:
+        driver.quit()
+
+if __name__ == "__main__":
+    max_pages = 10  # 원하는 페이지 수
+    crawling_data = get_crawling_data(max_pages)
+    print("그룹별 캐릭터 등장 횟수:")
     for group, members in character_groups.items():
-        total_count = sum(character_counts[member] for member in members if member in character_counts)
+        total_count = sum(character_counts[member] for member in members)
         if total_count > 0:
-            group_counts[group] = total_count
-            used_characters.update(members)  # 그룹에 속한 캐릭터들은 개별 카운트에서 제외
+            print(f"{group}: {total_count}")
 
-    # 개별 등장 횟수에서 그룹에 속하지 않은 캐릭터만 포함
-    individual_counts = {name: count for name, count in character_counts.items() if count > 0 and name not in used_characters}
-
-    # 결과를 딕셔너리 형태로 반환
-    return {
-        'group_counts': group_counts,
-        'individual_counts': individual_counts
-    }
+    print("\n개별 캐릭터 등장 횟수:")
+    for name, count in character_counts.items():
+        if count > 0 and not any(name in members for members in character_groups.values()):
+            if name == "양복":
+                print(f"검은 양복: {count}")
+            elif name == "쇼쿠호":
+                print(f"쇼쿠호 미사키: {count}")
+            else:
+                print(f"{name}: {count}")
